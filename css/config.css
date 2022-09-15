@@ -1,0 +1,10 @@
+:root {
+    --primary: #fcb251;
+    --primary-dark: #e25a00;
+    --blue: #bee2ff;
+    --secondary: rgb(85, 84, 84);
+    --light: rgb(216, 216, 216);
+    --medium: rgb(173, 173, 173);
+    --dark: rgb(102, 102, 102); 
+   --orange: #ffd8a6;
+}
