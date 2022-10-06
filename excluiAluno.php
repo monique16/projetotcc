@@ -1,10 +1,17 @@
 <?php
 
 include('conexao.php');
+session_start();
 
-$matricula = $_GET['matricula'];
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false){
+    header("location: login.php");
+    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) */
+    exit;
+}
 
-$sql = "DELETE FROM aluno WHERE matricula=$matricula";
+$matricula = $_GET['cod_usuario'];
+
+$sql = "DELETE FROM usuario WHERE cod_usuario=$cod_usuario";
 
 mysqli_query($conn, $sql);
 if (mysqli_affected_rows($conn) > 0) {

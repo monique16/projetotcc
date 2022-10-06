@@ -1,26 +1,34 @@
-<html>
+
 <?php
 include('conexao.php');
 
-$cod = $_GET['cod_funcionario'];
+session_start();
+
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false){
+    header("location: login.php");
+    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) */
+    exit;
+}
+
+$cod = $_GET['cod_usuario'];
 
 if (isset($_POST['btnSalvar'])) { // Realiza a alteração no BD
-    $nome_funcionario = $_POST['nome_funcionario'];
-    $funcao =  $_POST['funcao'];
-    $contato = $_POST['contato'];
-    $email_funcionario = $_POST['email_funcionario'];
-    $senha_funcionario = $_POST['senha_funcionario'];
-    $usuario = $_POST['usuario'];
+    $nome_usuario = $_POST['nome_usuario'];
+    $cpf =  $_POST['cpf'];
+    $email = $_POST['email'];
+    $senha_usuario = $_POST['senha_usuario'];
+    $funcao = $_POST['funcao'];
+    $turno = $_POST['turno'];
    
 
-    $sql = "UPDATE funcionario SET 
-                nome_funcionario='$nome_funcionario',
+    $sql = "UPDATE usuario SET 
+                nome_usuario='$nome_usuario',
+                cpf='$cpf',
+                email='$email',
+                senha_usuario='$senha_usuario',
                 funcao='$funcao',
-                contato='$contato',
-                email_funcionario='$email_funcionario',
-                senha_funcionario='$senha_funcionario',
-                usuario='$usuario'
-            WHERE cod_funcionario='$cod'";
+                turno='$turno'
+            WHERE cod_usuario='$cod'";
 
     mysqli_query($conn, $sql);
 
@@ -31,7 +39,7 @@ if (isset($_POST['btnSalvar'])) { // Realiza a alteração no BD
         echo "<script> alert('Ocorreu algum erro.') </script>";
     }
 }
-$sql = "SELECT * FROM funcionario WHERE cod_funcionario=$cod";
+$sql = "SELECT * FROM usuario WHERE cod_usuario=$cod";
 $rs = mysqli_query($conn, $sql);
 $linha = mysqli_fetch_array($rs);
 ?>
@@ -41,22 +49,22 @@ $linha = mysqli_fetch_array($rs);
 
     <form method="post">
         <div class="form-group">
-            Nome: <input class='form-control' type="text" name="nome_funcionario" value="<?php echo $linha['nome_funcionario'] ?>" />
+            Nome: <input class='form-control' type="text" name="nome_usuario" value="<?php echo $linha['nome_usuario'] ?>" />
         </div>
         <div class="form-group">
-            Senha: <input class='form-control' type="password" name="senha_funcionario" value="<?php echo $linha['senha_funcionario'] ?>" />
+            CPF: <input class='form-control' type="text" name="cpf" value="<?php echo $linha['cpf'] ?>" />
         </div>
         <div class="form-group">
-            Email: <input class='form-control' type="email" name="email_funcionario" value="<?php echo $linha['email_funcionario'] ?>" />
+            Email: <input class='form-control' type="email" name="email" value="<?php echo $linha['email'] ?>" />
         </div>
         <div class="form-group">
-            Contato: <input class='form-control' type="text" name="contato" value="<?php echo $linha['contato'] ?>" />
-        </div>
-        <div class="form-group">
-            Usuário: <input class='form-control' type="text" name="usuario" value="<?php echo $linha['usuario'] ?>" />
+            Senha: <input class='form-control' type="password" name="senha_usuario" value="<?php echo $linha['senha_usuario'] ?>" />
         </div>
         <div class="form-group">
             Função: <input class='form-control' type="text" name="funcao" value="<?php echo $linha['funcao'] ?>" />
+        </div>
+        <div class="form-group">
+            Turno: <input class='form-control' type="text" name="turno" value="<?php echo $linha['turno'] ?>" />
         </div>
         <div class="form-group">
             <input class='btn btn-success' type="submit" value="Salvar dados" name="btnSalvar" />
@@ -74,5 +82,3 @@ $linha = mysqli_fetch_array($rs);
 </div>
 
 </body>
-
-</html>

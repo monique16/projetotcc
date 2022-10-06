@@ -1,13 +1,13 @@
 <?php
-
 include('conexao.php');
-$cod_usuario = $_GET['cod_usuario'];
 
-$sql = "DELETE FROM usuario WHERE cod_usuario=$cod_usuario";
+$cod_cardapio = $_GET['cod_cardapio'];
+
+$sql = "DELETE FROM cardapio WHERE cod_cardapio=$cod_cardapio";
 
 mysqli_query($conn, $sql);
 if (mysqli_affected_rows($conn) > 0) {
-    header("Location: listaFuncionario.php");   
+    header("Location: cardapio.php");
 } else {
     echo "<script>alert('Houve algum erro.');</script>";
     mysqli_error($conn);

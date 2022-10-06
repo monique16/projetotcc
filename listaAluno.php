@@ -1,9 +1,7 @@
-<html>
-<?php
-include('conexao.php');
 
+<?php
 include('menu.php');
-$sql = "SELECT * FROM aluno";
+$sql = "SELECT * FROM usuario";
 $query = mysqli_query($conn, $sql);
 ?>
 <div id="lista">
@@ -14,28 +12,33 @@ $query = mysqli_query($conn, $sql);
 
         <table class='table table-hover'>
             <tr>
-                <td>Matricula</td>
+                <td>Código</td>
                 <td>Nome</td>
+                <td>CPF</td>
+                <td>Email</td>
+                <td>Senha</td>
+                <td>Turno</td>
                 <td>Recado</td>
                 <td>Data de nascimento</td>
-                <td>Série</td>
-                <td>Foto</td>
-                <td>Turno</td>
                 <td>Data de ingresso</td>
+                <td>Foto</td>
             </tr>
 
             <?php while ($dados = mysqli_fetch_array($query)) { ?>
                 <tr>
-                    <td><?php echo $dados['matricula'] ?></td>
-                    <td><?php echo $dados['nome_aluno'] ?></td>
-                    <td><?php echo $dados['recado_aluno'] ?></td>
-                    <td><?php echo $dados['Data_Nascimento'] ?></td>
-                    <td><?php echo $dados['serie'] ?></td>
-                    <td><img src="imageview.php?matricula=<?php echo $dados['matricula'] ?>" width="150" height="150"></td>
+                    <td><img src="imageview.php?cod_usuario=<?php echo $dados['usuario'] ?>" width="150" height="150"></td>
+                    <td><?php echo $dados['cod_usuario'] ?></td>
+                    <td><?php echo $dados['nome_usuario'] ?></td>
+                    <td><?php echo $dados['cpf'] ?></td>
+                    <td><?php echo $dados['email'] ?></td>
+                    <td><?php echo $dados['senha'] ?></td>
                     <td><?php echo $dados['turno'] ?></td>
+                    <td><?php echo $dados['recado'] ?></td>
+                    <td><?php echo $dados['data_nascimento'] ?></td>
                     <td><?php echo $dados['data_ingresso'] ?></td>
-                    <td colspan="2" class="text-center"><a class='btn btn-info btn-sm' href='editaAluno.php?matricula=<?php echo $dados['matricula'] ?>'><i class="fa-solid fa-pencil"></i></a>
-                    <a class='btn btn-danger btn-sm' href='#' onclick='confirmar("<?php echo $dados['matricula'] ?>")'><i class="fa-solid fa-trash-can"></i></a></td>
+                    <td><img src="imageview.php?cod_usuario=<?php echo $dados['usuario'] ?>" width="150" height="150"></td>
+                    <td colspan="2" class="text-center"><a class='btn btn-info btn-sm' href='editaAluno.php?cod_usuario=<?php echo $dados['cod_usuario'] ?>'><i class="fa-solid fa-pencil"></i></a>
+                    <a class='btn btn-danger btn-sm' href='#' onclick='confirmar("<?php echo $dados['cod_usuario'] ?>")'><i class="fa-solid fa-trash-can"></i></a></td>
                 </tr>
             <?php } ?>
         </table>
@@ -44,7 +47,7 @@ $query = mysqli_query($conn, $sql);
 <script>
     function confirmar(cod) {
         if (confirm('Você realmente deseja excluir esta linha?'))
-            location.href = 'excluiAluno.php?matricula=' + cod;
+            location.href = 'excluiAluno.php?cod_usuario=' + cod;
     }
 </script>
 

@@ -1,22 +1,15 @@
-<?php
-include('conexao.php');
-
-
-$sql = "SELECT * FROM recados";
-$query = mysqli_query($conn, $sql);
-?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
 
-<head>
-  <title>Click Escola</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <header>
+    <head>
+      <title>Click Escola</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <header>
     <!-- Meta tags necessárias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -89,53 +82,98 @@ $query = mysqli_query($conn, $sql);
     <!-- //HEADER -->
 </head>
 
+
+
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col mb-4 mt-4 title text-center">
-        <h1>Recados</h1>
-      </div>
-    </div>
 
+  <div id="cardapio" class="block">
 
-    <div class="row">
-      <div class="col">
-        <h2>
-
-        </h2>
-      </div>
-      <div class="col-auto">
-        <a href="cadastraRecado.php" class="btn btn-success" id="buttonNovoRecado">Novo Recado</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Código</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Data</th>
-              <th scope="col">Hora</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody id="tabelaRecados">
-            <?php while ($dados = mysqli_fetch_array($query)) { ?>
-              <tr>
-                <td><?php echo $dados['cod_recado'] ?></td>
-                <td><?php echo $dados['nome_recado'] ?></td>
-                <td><?php echo $dados['data_recado'] ?></td>
-                <td><?php echo $dados['hora_recado'] ?></td>
-                <td></td>
-              </tr>
-            <?php } ?>
-
-          </tbody>
-        </table>
+    <div class="container">
+      <h2 class="title text-center">Cardápio Semanal</h2>
+      <div class="container text-center">
+        <div class="row row-cols-5">
+          <button type="button" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>Segunda-feira</button>
+          <button type="button" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>Terça-feira</button>
+          <button type="button" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>Quarta-feira</button>
+          <button type="button" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>Quinta-feira</button>
+          <button type="button" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>Sexta-feira</button>
+        </div>
       </div>
     </div>
   </div>
+  <div class="text-center">
+    <button type="button" class="carda btn button-outline btn-outline button" disabled>café da manhã/tarde | 09h30 - 09h45 e 15h15 - 15h30</button>
+  </div>
+
+  <div class="container text-center">
+    <div class="row row-cols-5">
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 1</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 2</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 3</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 4</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 5</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="text-center">
+    <button type="button" class="carda2 btn button-outline btn-outline button" disabled>almoço | 11h45 - 13h00</button>
+  </div>
+
+  <div class="container text-center">
+    <div class="row row-cols-5">
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 1</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 1</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 1</p>
+        </div>
+      </div>
+
+      <div class="card" style="width: 12rem;">
+        <div class="card-body">
+          <p class="card-text">Refeição 1</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <div>
     <footer class="footer mt-auto py-3">
@@ -145,14 +183,11 @@ $query = mysqli_query($conn, $sql);
     </footer>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-
   <script src="js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="js/isotope.pkgd.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/main.js"></script>
-  <!-- <script src="js/agenda.js"></script> -->
 
 </body>
 
