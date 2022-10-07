@@ -1,34 +1,26 @@
-
 <?php
 include('conexao.php');
 
-session_start();
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === false){
-    header("location: login.php");
-    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) */
-    exit;
-}
-
-$cod = $_GET['cod_usuario'];
+$cod = $_GET['cod_funcionario'];
 
 if (isset($_POST['btnSalvar'])) { // Realiza a alteração no BD
-    $nome_usuario = $_POST['nome_usuario'];
+    $nome_funcionario = $_POST['nome_funcionario'];
     $cpf =  $_POST['cpf'];
     $email = $_POST['email'];
-    $senha_usuario = $_POST['senha_usuario'];
+    $senha_funcionario = $_POST['senha_funcionario'];
     $funcao = $_POST['funcao'];
     $turno = $_POST['turno'];
    
 
-    $sql = "UPDATE usuario SET 
-                nome_usuario='$nome_usuario',
+    $sql = "UPDATE funcionarios SET 
+                nome_funcionario='$nome_funcionario',
                 cpf='$cpf',
                 email='$email',
-                senha_usuario='$senha_usuario',
+                senha_funcionario='$senha_funcionario',
                 funcao='$funcao',
                 turno='$turno'
-            WHERE cod_usuario='$cod'";
+            WHERE cod_funcionario='$cod'";
 
     mysqli_query($conn, $sql);
 
@@ -39,7 +31,7 @@ if (isset($_POST['btnSalvar'])) { // Realiza a alteração no BD
         echo "<script> alert('Ocorreu algum erro.') </script>";
     }
 }
-$sql = "SELECT * FROM usuario WHERE cod_usuario=$cod";
+$sql = "SELECT * FROM funcionarios WHERE cod_funcionario=$cod";
 $rs = mysqli_query($conn, $sql);
 $linha = mysqli_fetch_array($rs);
 ?>
@@ -49,7 +41,7 @@ $linha = mysqli_fetch_array($rs);
 
     <form method="post">
         <div class="form-group">
-            Nome: <input class='form-control' type="text" name="nome_usuario" value="<?php echo $linha['nome_usuario'] ?>" />
+            Nome: <input class='form-control' type="text" name="nome_funcionario" value="<?php echo $linha['nome_funcionario'] ?>" />
         </div>
         <div class="form-group">
             CPF: <input class='form-control' type="text" name="cpf" value="<?php echo $linha['cpf'] ?>" />
@@ -58,7 +50,7 @@ $linha = mysqli_fetch_array($rs);
             Email: <input class='form-control' type="email" name="email" value="<?php echo $linha['email'] ?>" />
         </div>
         <div class="form-group">
-            Senha: <input class='form-control' type="password" name="senha_usuario" value="<?php echo $linha['senha_usuario'] ?>" />
+            Senha: <input class='form-control' type="password" name="senha_funcionario" value="<?php echo $linha['senha_funcionario'] ?>" />
         </div>
         <div class="form-group">
             Função: <input class='form-control' type="text" name="funcao" value="<?php echo $linha['funcao'] ?>" />

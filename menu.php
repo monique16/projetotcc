@@ -1,8 +1,7 @@
-
 <!doctype html>
 <html lang="pt-br">
 
-<header>
+<head>
     <!-- Meta tags necessárias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,9 +13,9 @@
     <!-- CSS -->
     <link rel="stylesheet" href="css/magnific-popup.css" />
     <link rel="stylesheet" href="css/principal.css" />
- <link rel="stylesheet" tipo="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
- <title>Clique Escola</title>
-
+    <link rel="stylesheet" tipo="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <title>Clique Escola</title>
+</head>
 
 <body>
     <!-- CABEÇALHO -->
@@ -27,55 +26,54 @@
                 <a class="navbar-brand" href="#">
                     <img src="imagens/logon.png" class="img-fluid" />
                 </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Navegação alternada">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                        <div class="colapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page"><i id="header-toggle" class="fa-solid fa-user"></i></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link ativo" aria-corrente="page" href="index.php">Início</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link ativo" aria-corrente="page" href="cardapio.php">Cardápio</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="cronograma.php">Cronograma</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link ativo" aria-corrente="page" href="eventos.php">Eventos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link active" aria-corrente="page" href="recados.php">Recados</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="cadastraAluno.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Aluno
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="cadastraAluno.php">Cadastrar Aluno</a></li>
-                                        <li><a class="dropdown-item" href="listaAluno.php">Listar Aluno</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle active" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
-                                        Funcionário
-                                    </a>
-                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li><a class="dropdown-item" href="cadastraFuncionario.php">Cadastrar Funcioário</a></li>
-                                            <li><a class="dropdown-item" href="listaFuncionario.php">Listar Funcioário</a></li>
-                                        </ul>
-                                </li>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Navegação alternada">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="colapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"><i id="header-toggle" class="fa-solid fa-user"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ativo" aria-corrente="page" href="index.php">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ativo" aria-corrente="page" href="cardapio.php">Cardápio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="cronograma.php">Cronograma</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link ativo" aria-corrente="page" href="eventos.php">Eventos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-corrente="page" href="recados.php">Recados</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="cadastraAluno.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Aluno
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="cadastraAluno.php">Cadastrar Aluno</a></li>
+                                <li><a class="dropdown-item" href="listaAluno.php">Listar Aluno</a></li>
                             </ul>
-                        </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
+                                Funcionário
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><a class="dropdown-item" href="cadastraFuncionario.php">Cadastrar Funcioário</a></li>
+                                <li><a class="dropdown-item" href="listaFuncionario.php">Listar Funcioário</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
         </div>
         </nav>
 
     </div>
     </div>
     <!-- //HEADER -->
-</header>
 
 </html>

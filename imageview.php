@@ -3,8 +3,8 @@
 include('conexao.php');
 
 
-if (isset($_GET['cod_usuario'])) {
-$sql = "SELECT foto_aluno FROM usuario WHERE cod_usuario = {$_GET['cod_usuario']}";
+if (isset($_GET['cod_aluno'])) {
+$sql = "SELECT foto_aluno FROM alunos WHERE cod_aluno = {$_GET['cod_aluno']}";
 $stmt = mysqli_query($conn, $sql);
 
 $res = mysqli_fetch_array($stmt);

@@ -1,4 +1,5 @@
 <?php
+
 include('conexao.php');
 
 $cod_cardapio = $_GET['cod_cardapio'];

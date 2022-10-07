@@ -4,7 +4,7 @@ include('conexao.php');
 
 
 include('menu.php');
-$sql = "SELECT * FROM usuario";
+$sql = "SELECT * FROM funcionarios";
 $query = mysqli_query($conn, $sql);
 ?>
 <div id="lista">
@@ -26,15 +26,15 @@ $query = mysqli_query($conn, $sql);
 
             <?php while ($dados = mysqli_fetch_array($query)) { ?>
                 <tr>
-                    <td><?php echo $dados['cod_usuario'] ?></td>
-                    <td><?php echo $dados['nome_usuario'] ?></td>
+                    <td><?php echo $dados['cod_funcionario'] ?></td>
+                    <td><?php echo $dados['nome_funcionario'] ?></td>
                     <td><?php echo $dados['cpf'] ?></td>
                     <td><?php echo $dados['email'] ?></td>
-                    <td><?php echo $dados['senha_usuario'] ?></td>
+                    <td><?php echo $dados['senha_funcionario'] ?></td>
                     <td><?php echo $dados['funcao'] ?></td>
                     <td><?php echo $dados['turno'] ?></td>
-                    <td colspan="2" class="text-center"><a class='btn btn-info btn-sm' href='editaFuncionario.php?cod_usuario=<?php echo $dados['cod_usuario'] ?>'><i class="fa-solid fa-pencil"></i></a>
-                    <a class='btn btn-danger btn-sm' href='#' onclick='confirmar("<?php echo $dados['cod_usuario'] ?>")'><i class="fa-solid fa-trash-can"></i></a></td>
+                    <td colspan="2" class="text-center"><a class='btn btn-info btn-sm' href='editaFuncionario.php?cod_funcionario=<?php echo $dados['cod_funcionario'] ?>'><i class="fa-solid fa-pencil"></i></a>
+                    <a class='btn btn-danger btn-sm' href='#' onclick='confirmar("<?php echo $dados['cod_funcionario'] ?>")'><i class="fa-solid fa-trash-can"></i></a></td>
                 </tr>
             <?php } ?>
         </table>
@@ -43,7 +43,7 @@ $query = mysqli_query($conn, $sql);
 <script>
     function confirmar(cod) {
         if (confirm('Você realmente deseja excluir esta linha?'))
-            location.href = 'excluiFuncionario.php?cod_usuario=' + cod;
+            location.href = 'excluiFuncionario.php?cod_funcionario=' + cod;
     }
 </script>
 

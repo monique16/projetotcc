@@ -12,7 +12,7 @@
     <div class="main-login">
         
             <div class="left-login">
-                <img src="imagens/cell_animated.svg" class="left-login-image" alt="Cell Animado"></div>
+                <img src="imagens/cell_login.svg" class="left-login-image" alt="Cell Animado"></div>
 
                 <form method="post" action="config_login.php">
                 <div class="right-login">

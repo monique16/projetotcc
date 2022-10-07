@@ -8,8 +8,8 @@ if (isset($_POST['btnSalvar'])) {
     $horario_cardapio =  $_POST['horario_cardapio'];
     $alimento = $_POST ['alimento'];
 
-    $sql = "INSERT INTO cardapio (dia_cardapio, horario_cardapio, alimento, usuario_cod_usuario)
-            VALUES ('$dia_cardapio', '$horario_cardapio', '$alimento', 10)";
+    $sql = "INSERT INTO cardapio (dia_cardapio, horario_cardapio, alimento)
+            VALUES ('$dia_cardapio', '$horario_cardapio', '$alimento')";
 echo $sql;  
     mysqli_query($conn, $sql);
 
