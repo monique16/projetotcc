@@ -21,8 +21,8 @@
                         <h1>LOGIN</h1>
                 
                         <div class="textfield <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                            <label for="usuario">Usuário</label>
-                            <input type="text" name="username" placeholder="Usuário">
+                            <label for="nome_aluno">Email</label>
+                            <input type="text" name="nome_aluno" placeholder="Nome">
                         </div>
                     
                         <div class="textfield <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">

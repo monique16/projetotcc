@@ -1,12 +1,5 @@
 <?php
 
-session_start();
-
-if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
-    header("location: index.php");
-    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) */
-    exit;
-}
 
 require_once "config.php";
 
@@ -34,7 +27,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         /*Troque os dados referentes a tabelas, a final estamos usando o SElECT
         //Users pelo nome da sua tabela E username pela columa em questão // EX: username = User_name
         //NÃO TROQUE O :username */
-        $sql = "SELECT * FROM usuario WHERE usuario = :username";
+        $sql = "SELECT * FROM alunos WHERE aluno = :username";
         echo"$sql";
         if($stmt = $pdo->prepare($sql)){
             
@@ -49,9 +42,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 if($stmt->rowCount() == 1){
                     if($row = $stmt->fetch()){
-                        $id = $row["cod_usuario"];
-                        $username = $row["nome_usuario"];
-                        $hashed_password = $row["senha_usuario"];
+                        $id = $row["cod_aluno"];
+                        $username = $row["nome_aluno"];
+                        $hashed_password = $row["senha_aluno"];
 
                         if($password == $hashed_password){
                         echo"logou";
@@ -59,8 +52,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
 
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["cod_usuario"] = $id;
-                            $_SESSION["nome_usuario"] = $username;                            
+                            $_SESSION["cod_aluno"] = $id;
+                            $_SESSION["nome_aluno"] = $username;                            
                             echo "conexão ok!";
 
             /* Mesma coisa que antes coloque a pagina principal no lugar de welcome.php */

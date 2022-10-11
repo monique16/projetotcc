@@ -1,7 +1,12 @@
 <html>
 <?php
 include('conexao.php');
+/*session_start();
 
+if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+    header("location: index.php");
+    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
+    exit;*/
 include('menu.php');
 $sql = "SELECT * FROM usuario";
 $query = mysqli_query($conn, $sql);

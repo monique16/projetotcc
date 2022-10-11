@@ -1,3 +1,11 @@
+<?php
+/*session_start();
+
+if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+    header("location: index.php");
+    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
+    exit;*/
+?>
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -85,7 +93,12 @@
     <!-- //HEADER -->
 </header>
 
+<?php
+include('conexao.php');
 
+$sql = "SELECT * FROM alunos";
+$query = mysqli_query($conn, $sql);
+?>
 
 <!-- MENU LATERAL --->
 
@@ -94,36 +107,30 @@
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
+    
+
+    <div class='container'>
+            
+          
+
+            <?php while ($dados = mysqli_fetch_array($query)) { ?>
+                <tr>
+                    <td> <img height="80" width="80" src="imageview/<?php echo $dados['foto_aluno'] ?>"> </td>
+                    <td><?php echo $dados['nome_aluno'] ?></td>
+                    <td><?php echo $dados['cpf'] ?></td>
+                    <td><?php echo $dados['email'] ?></td>
+                    <td><?php echo $dados['senha_aluno'] ?></td>
+                    <td><?php echo $dados['turno'] ?></td>
+                    <td><?php echo $dados['matricula'] ?></td>
+                    <td><?php echo $dados['serie'] ?></td>
+                    <td><?php echo $dados['recado'] ?></td>
+                    <td><?php echo $dados['data_nascimento'] ?></td>
+                    <td><?php echo $dados['data_ingresso'] ?></td>
+                    </tr>
+            <?php } ?>
+        </table>
+        </div>
     </div>
-  </div>
-</nav>
 <!-- MENU LATERAL --->
 
 

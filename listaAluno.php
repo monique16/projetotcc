@@ -1,6 +1,12 @@
 <?php
 include('conexao.php');
 
+/*session_start();
+
+if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+    header("location: index.php");
+    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
+    exit;*/
 
 include('menu.php');
 $sql = "SELECT * FROM alunos";
@@ -37,7 +43,7 @@ $query = mysqli_query($conn, $sql);
                     <td><?php echo $dados['senha_aluno'] ?></td>
                     <td><?php echo $dados['turno'] ?></td>
                     <td><?php echo $dados['matricula'] ?></td>
-                    <td><img src="imageview.php?cod_aluno=<?php echo $dados['alunos'] ?>" width="150" height="150"></td>
+                    <td> <img height="80" width="80" src="imageview/<?php echo $dados['foto_aluno'] ?>"> </td>
                     <td><?php echo $dados['serie'] ?></td>
                     <td><?php echo $dados['recado'] ?></td>
                     <td><?php echo $dados['data_nascimento'] ?></td>

@@ -1,79 +1,11 @@
 <?php
-include('conexao.php'); // importa o arquivo de conexao com o BD
+/*session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $target_dir = "./imagens/alunos/";
-    $foto_aluno = $target_dir . basename($_FILES["foto_aluno"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($foto_aluno,PATHINFO_EXTENSION));
-    $nome_aluno = $_POST['nome_aluno'];
-    $cpf =  $_POST['cpf'];
-    $email = $_POST ['email'];
-    $senha_aluno = $_POST['senha_aluno'];
-    $turno = $_POST['turno'];
-    $matricula = $_POST['matricula'];
-    $recado = $_POST['recado'];
-    //$foto_aluno = $_FILES['foto_aluno'];
-    $serie = $_POST['serie'];
-    $data_nascimento = $_POST['data_nascimento'];
-    $data_ingresso = $_POST['data_ingresso'];
-
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["foto_aluno"]["tmp_name"]);
-    if($check !== false) {
-      echo "File is an image - " . $check["mime"] . ".";
-      $uploadOk = 1;
-    } else {
-      echo "File is not an image.";
-      $uploadOk = 0;
-    }
-  }
-  //verifica e faz o uplod d imgem
-  // Check if file already exists
-if (file_exists($foto_aluno)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-  }
-  
-  // Check file size
-  if ($_FILES["foto_aluno"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-  }
-  
-  // Allow certain file formats
-  if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-  && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
-  }
-  
-  // Check if $uploadOk is set to 0 by an error
-  if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-  // if everything is ok, try to upload file
-  } else {
-    if (move_uploaded_file($_FILES["foto_aluno"]["tmp_name"], $foto_aluno)) {
-      echo "The file ". htmlspecialchars( basename( $_FILES["foto_aluno"]["name"])). " has been uploaded.";
-    } else {
-      echo "Sorry, there was an error uploading your file.";
-    }
-  }
-
-    $sql = "INSERT INTO alunos (nome_aluno, cpf, email, senha_aluno, turno, matricula, recado, foto_aluno, serie, data_nascimento, data_ingresso)
-            VALUES ('$nome_aluno', '$cpf', '$email', '$senha_aluno', '$turno', '$matricula', '$recado', '$foto_aluno', '$serie', '$data_nascimento', '$data_ingresso')";
-
-    mysqli_query($conn, $sql);
-
-    if (mysqli_affected_rows($conn) > 0) {
-        echo "<script> alert('Funcionário cadastrado com sucesso.') </script>";
-        header("Location: listaAluno.php");
-    } else {
-        echo "<script> alert('Ocorreu algum erro.') </script>";
-    }
-}
-?>
+if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+    header("location: index.php");
+    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
+    exit;*/
+?> 
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -83,13 +15,97 @@ if (file_exists($foto_aluno)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
     <title>Login</title>
+
+    <?php
+include('conexao.php'); // importa o arquivo de conexao com o BD
+
+if (isset($_POST['btnEnviar'])) {
+    $target_dir = "imageview/";
+    $name = $_FILES['foto_aluno']['name'];
+
+    $ext = strtolower(substr($name, -4)); //Pegando extensão do arquivo
+    $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+
+    $target_file = $target_dir . $new_name;
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    $nome_aluno = $_POST['nome_aluno'];
+    $cpf =  $_POST['cpf'];
+    $email = $_POST ['email'];
+    $senha_aluno = $_POST['senha_aluno'];
+    $turno = $_POST['turno'];
+    $matricula = $_POST['matricula'];
+    $recado = $_POST['recado'];
+    $foto_aluno = $target_file; 
+    $serie = $_POST['serie'];
+    $data_nascimento = $_POST['data_nascimento'];
+    $data_ingresso = $_POST['data_ingresso'];
+
+    if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["foto_aluno"]["tmp_name"]);
+        if ($check !== false) {
+          echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+        } else {
+          echo "File is not an image.";
+          $uploadOk = 0;
+        }
+      }
+  
+      // Check if file already exists
+      if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+      }
+  
+      // Check file size
+      //  if ($_FILES["foto_aluno"]["size"] > 500000) {
+      //    echo "Sorry, your file is too large.";
+      //   $uploadOk = 0;
+      // }
+  
+      // Allow certain file formats
+      if (
+        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif"
+      ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+      }
+  
+      // Check if $uploadOk is set to 0 by an error
+      if ($uploadOk == 0) {
+        // echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+      } else {
+        if (move_uploaded_file($_FILES["foto_aluno"]["tmp_name"], $target_file)) {
+          // echo "O arquivo " . htmlspecialchars(basename($_FILES["foto_aluno"]["name"])) . " foi enviado com sucesso.";
+  
+          // echo " $target_file";
+          
+
+    $sql = "INSERT INTO alunos (nome_aluno, cpf, email, senha_aluno, turno, matricula, recado, foto_aluno, serie, data_nascimento, data_ingresso)
+            VALUES ('$nome_aluno', '$cpf', '$email', '$senha_aluno', '$turno', '$matricula', '$recado', '$new_name', '$serie', '$data_nascimento', '$data_ingresso')";
+
+    mysqli_query($conn, $sql);
+
+    if (mysqli_affected_rows($conn) > 0) {
+        echo "<script> alert('Funcionário cadastrado com sucesso.') </script>";
+        header("Location: listaAluno.php");
+    } else {
+        echo "<script> alert('Ocorreu algum erro.') </script>";
+    }
+}}}
+?>
+
 </head>
 <?php include('menu.php'); ?>
     <div class="main-login">
         <div class='left-login'>
         <img src="imagens/personal-data-animate.svg" style="margin-top: 0px"class="left-login-image" alt="Cell Animado"></div>
 
-        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
             <div class="right-login">
                 <div  class="card-login">
                     <div class="row">
@@ -150,7 +166,7 @@ if (file_exists($foto_aluno)) {
                     <div class="textfield col-8 mb-4" >
                     <b>Foto:</b>
                         <label for="formFile" class="form-label"></label>
-                        <input class="form-control" type="file" id="foto_aluno" name="foto_aluno">
+                        <input class="form-control" type="file" name="foto_aluno">
                     </div>                  
                     <div class="textfield mb-3">
                         <b>Recado: </b>
@@ -158,14 +174,17 @@ if (file_exists($foto_aluno)) {
                         <input class="form-control" id="exampleFormControlTextarea1" type="text" name="recado" rows="3">
                     </div>
                     <div class="form-group">
-                        <input class='btn-login' type="submit" value="Enviar" name="btnSalvar" />
+                        <input class='btn-login' type="submit" value="Enviar" name="btnEnviar" />
                         <input class='btn-login' type="reset" value="Limpar campos" />
                     </div>
                     </form>
+    </div>
+
+ </body>
+</html>
 
     <script src="js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
-</body>
