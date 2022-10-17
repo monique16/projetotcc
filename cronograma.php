@@ -110,7 +110,7 @@ $query = mysqli_query($conn, $sql);
         </h2>
       </div>
       <div class="col-auto">
-        <a href="cadastraCronograma2.php" class="btn btn-success" id="buttonNovoCronograma">Adicionar Aulas</a>
+        <a href="cadastraCronograma.php" class="btn btn-success" id="buttonNovoCronograma">Adicionar Aulas</a>
       </div>
     </div>
     <div class="row">

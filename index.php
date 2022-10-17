@@ -1,9 +1,10 @@
 <?php
-/*session_start();
+session_start();
 
-if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
-    header("location: index.php");
-    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
+//if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+//  header("location: index.php");
+//}
+/* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
     exit;*/
 ?>
 
@@ -49,7 +50,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
           <div class="colapse navbar-collapse justify-content-end" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-current="page" ><i id="header-toggle" class="fa-solid fa-user"></i></a>
+                <a class="nav-link active" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-current="page"><i id="header-toggle" class="fa-solid fa-user"></i></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link ativo" aria-corrente="page" href="index.php">Início</a>
@@ -76,7 +77,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
                 </ul>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle active" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
+                <a class="nav-link dropdown-toggle active" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Funcionário
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -93,44 +94,67 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
     <!-- //HEADER -->
 </header>
 
-<?php
-include('conexao.php');
-
-$sql = "SELECT * FROM alunos";
-$query = mysqli_query($conn, $sql);
-?>
 
 <!-- MENU LATERAL --->
-
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-    
-
-    <div class='container'>
-            
-          
-
-            <?php while ($dados = mysqli_fetch_array($query)) { ?>
-                <tr>
-                    <td> <img height="80" width="80" src="imageview/<?php echo $dados['foto_aluno'] ?>"> </td>
-                    <td><?php echo $dados['nome_aluno'] ?></td>
-                    <td><?php echo $dados['cpf'] ?></td>
-                    <td><?php echo $dados['email'] ?></td>
-                    <td><?php echo $dados['senha_aluno'] ?></td>
-                    <td><?php echo $dados['turno'] ?></td>
-                    <td><?php echo $dados['matricula'] ?></td>
-                    <td><?php echo $dados['serie'] ?></td>
-                    <td><?php echo $dados['recado'] ?></td>
-                    <td><?php echo $dados['data_nascimento'] ?></td>
-                    <td><?php echo $dados['data_ingresso'] ?></td>
-                    </tr>
-            <?php } ?>
-        </table>
-        </div>
+<div>
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel"></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+
+      <img style="margin-left: 60px" class="rounded-circle mt-3 mb-3" height="200" width="200" src="imageview/<?php echo $_SESSION['foto_aluno'] ?>">
+      <br>
+      <div style="margin-right: 40px">
+  
+      <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-face-smile"></i> <b>Nome:</b>
+        <?php echo $_SESSION['nome'] ?></div>
+
+      <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-star"></i></i> <b>Data de Nascimento:</b>
+          <?php echo $_SESSION['data_nascimento'] ?></div>
+
+      <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-file"></i> <b>CPF:</b>
+        <?php echo $_SESSION['cpf'] ?></div>
+
+      <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-envelope"></i> <b>E-mail:</b>
+        <?php echo $_SESSION['email'] ?></div>
+
+      <?php
+      if ($_SESSION["funcionario"]) { ?>
+        <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-user-tie"></i> <b>Função:</b>
+          <?php echo $_SESSION['funcao'] ?></div>
+      <?php
+      };
+      ?>
+      <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-sun"></i> <b>Turno:</b>
+        <?php echo $_SESSION['turno'] ?></div>
+
+
+      <?php
+      if (!$_SESSION["funcionario"]) { ?>
+        <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-balloon"></i> <b>N° Matrícula:</b>
+          <?php echo $_SESSION['matricula'] ?></div>
+
+        <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-folder-open"></i> <b>Série:</b>
+          <?php echo $_SESSION['serie'] ?></div>
+
+        <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-circle-user"></i> <b>Data de ingresso:</b>
+          <?php echo $_SESSION['data_ingresso'] ?></div>
+
+        <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-message"></i> <b>Recado:</b>
+          <?php echo $_SESSION['recado'] ?></div>
+
+      <?php
+      };
+      ?>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
 <!-- MENU LATERAL --->
 
 

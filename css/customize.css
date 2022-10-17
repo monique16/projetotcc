@@ -40,6 +40,16 @@ body {
   color: var(--secondary);
 }
 
+/* Menu lateral */
+#offcanvasNavbar {
+  padding-left: 40px;
+  font-family:"Roboto", sans-serif;
+  background-color: rgb(235, 235, 235);
+}
+
+
+
+
 
 /* Slider */
 
@@ -436,4 +446,4 @@ body {
   margin-bottom: 0px;
 }
 
-/* Cronograma */
+

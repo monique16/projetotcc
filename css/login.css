@@ -18,6 +18,10 @@ body *{
     align-items: center;
 }
 
+.form-check{
+    margin-left: 0px;
+}
+
 .left-login{
     width: 50vw;
     height: 100vh;
