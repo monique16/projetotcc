@@ -59,4 +59,5 @@ function novoEvento() {
   novoEvento.classList.remove('d-none');
 }
 
-// CRONOGRAMA
+ // CADASTRO
+

@@ -16,7 +16,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
     <title>Eventos</title>
-
+</head>
     <?php
     include('conexao.php'); // importa o arquivo de conexao com o BD
 
@@ -93,7 +93,6 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
     }
     ?>
 
-</head>
 <?php include('menu.php'); ?>
 <div class="main-login">
     <div class='left-login'>
@@ -108,10 +107,19 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
                     <h2> CADASTRAR EVENTOS </h2>
 
                     <div class="textfield">
-                        <b>Nome: </b><input class='form-control' type="text" name="nome_evento" />
+                        <b>Evento</b>
+                        <select class="textfield" type="text" name="nome_evento" class="form-select">
+                    <option selected></option>
+                        <option value="junina">Festa Junina</option>
+                        <option value="familia">Festa da Família</option>
+                        <option value="especiais">Dias especiais</option>
+                        <option value="passeio">Passeios</option>
+                        <option value="FASE">FASE</option>
+                        <option value="alunos">Nossos alunos</option>
+                        </select>
                     </div>
 
-                    <div class="textfield col-8 mb-4">
+                    <div class="textfield mb-4">
                         <b>Foto:</b>
                         <label for="formFile" class="form-label"></label>
                         <input class="form-control" type="file" name="foto_evento">

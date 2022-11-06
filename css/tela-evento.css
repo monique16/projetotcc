@@ -1,0 +1,111 @@
+
+
+html, body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+
+.main-box{
+    width: 100%;   
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-eventos{
+    margin: 30px 0px ;
+    height: 80%;
+    width: 80vw;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-eventos h2{
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    text-transform: uppercase; 
+    font-size: 25px;
+}
+
+.card-eventos .subtitle{
+    margin: 0px;
+    padding: 10px 20px;
+    color: black;
+    text-align: center;
+}
+
+.subtitle .junction-hidde-works{
+    display: none;
+}
+
+.button-group{
+    padding: 1%;
+    background-color: rgb(128, 128, 128);
+}
+
+.button-group button{
+    margin: 0px 5px 0px 15px;
+    height: 20px;
+    border: none;
+    background-color: rgb(128, 128, 128);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+.button-group button:hover{
+    color: black;
+}
+
+.event{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+.element-item{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: -130px 5px 25px 0px;
+}
+
+.element-item img{
+    height: 200px;
+    width: 200px;
+    border: 2px solid rgb(114, 32, 0);
+    object-fit: cover;
+    object-position: center;
+}
+
+.element-item a{
+    height: 200px;
+    width: 200px;
+}
+
+.element-item span{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin: 15px 0px 0px 0px;
+    width: 90%;
+    border: 2px solid #ff9900;
+    border-radius: 10px;
+    background-color: white;
+    color: #ff9900;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+i{
+    padding-right: 00px;
+}

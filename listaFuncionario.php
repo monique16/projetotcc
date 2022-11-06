@@ -28,6 +28,7 @@ $query = mysqli_query($conn, $sql);
                 <td>Senha</td>
                 <td>Função</td>
                 <td>Turno</td>
+                <td>Foto</td>
             </tr>
 
             <?php while ($dados = mysqli_fetch_array($query)) { ?>
@@ -39,6 +40,7 @@ $query = mysqli_query($conn, $sql);
                     <td><?php echo $dados['senha_funcionario'] ?></td>
                     <td><?php echo $dados['funcao'] ?></td>
                     <td><?php echo $dados['turno'] ?></td>
+                    <td> <img height="80" width="80" src="imageview/<?php echo $dados['foto_funcionario'] ?>"> </td>
                     <td colspan="2" class="text-center"><a class='btn btn-info btn-sm' href='editaFuncionario.php?cod_funcionario=<?php echo $dados['cod_funcionario'] ?>'><i class="fa-solid fa-pencil"></i></a>
                     <a class='btn btn-danger btn-sm' href='#' onclick='confirmar("<?php echo $dados['cod_funcionario'] ?>")'><i class="fa-solid fa-trash-can"></i></a></td>
                 </tr>

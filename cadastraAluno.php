@@ -1,25 +1,15 @@
 <?php
+include('conexao.php'); // importa o arquivo de conexao com o BD
+
 /*session_start();
 
 if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
     header("location: index.php");
     /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
     exit;*/
-?> 
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/cadastro.css">
-    <title>Login</title>
-
-    <?php
-include('conexao.php'); // importa o arquivo de conexao com o BD
 
 if (isset($_POST['btnEnviar'])) {
+  
     $target_dir = "imageview/";
     $name = $_FILES['foto_aluno']['name'];
 
@@ -98,7 +88,15 @@ if (isset($_POST['btnEnviar'])) {
     }
 }}}
 ?>
-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/principal.css">
+    <title>Login</title>
 </head>
 <?php include('menu.php'); ?>
     <div class="main-login">
@@ -132,19 +130,17 @@ if (isset($_POST['btnEnviar'])) {
                     </div>  
                     <div class="textfield col-6">
                     <b>Turno:</b>
-                        <input  type="text" name="turno" class="form-select"/>
+                        <select class="textfield" type="text" name="turno" class="form-select">
                         <option selected></option>
-                        <!--<select>
-                            <option value="1">Matutino</option>
-                            <option value="2">Vespertino</option>
-                            <option value="3">Integral</option>
-                            </select>-->
+                            <option value="Matutino">Matutino</option>
+                            <option value="Vespertino">Vespertino</option>
+                            <option value="Integral">Integral</option>
+                          </select>
                         </div>
                         
                     <div class="textfield col-6">
                         <b>Série:</b>
-                        <input  type="text" name="serie" class="form-select"/>
-                    <!--<select>
+                        <select class="textfield" type="text" name="serie" class="form-select">
                     <option selected></option>
                         <option value="Infantil I">Infantil I</option>
                         <option value="Infantil II">Infantil II</option>
@@ -158,7 +154,7 @@ if (isset($_POST['btnEnviar'])) {
                         <option value="7° Ano">7° Ano</option>
                         <option value="8° Ano">8° Ano</option>
                         <option value="9° Ano">9° Ano</option>
-                        </select>-->
+                        </select>
                     </div>
                     <div class="textfield col-4">
                         <b>Data de ingresso: </b><input class='form-control' type="date" name="data_ingresso" />
@@ -174,11 +170,12 @@ if (isset($_POST['btnEnviar'])) {
                         <input class="form-control" id="exampleFormControlTextarea1" type="text" name="recado" rows="3">
                     </div>
                     <div class="form-group">
+                      
                         <input class='btn-login' type="submit" value="Enviar" name="btnEnviar" />
                         <input class='btn-login' type="reset" value="Limpar campos" />
                     </div>
-                    </form>
-    </div>
+</form>
+
 
  </body>
 </html>
@@ -188,3 +185,16 @@ if (isset($_POST['btnEnviar'])) {
     <script src="js/isotope.pkgd.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src="js/main.js"></script>
+
+        
+<script>
+const toastTrigger = document.getElementById('liveToastBtn')
+const toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+  toastTrigger.addEventListener('click', () => {
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+  })
+}
+</script>

@@ -1,0 +1,96 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.menu h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    border: 2px solid black;
+    height: 60px;
+    width: 100%;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    text-transform: uppercase;
+    
+}
+
+.card-listagem{
+    margin: 30px 0px ;
+    height: 80%;
+    width: 80vw;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+
+.list{
+    margin: 10px 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.box{
+    height: 370px;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(196, 196, 196);
+    border-radius: 5px;
+}
+
+.box h4{
+    text-transform: uppercase;
+    color: black;
+}
+
+.box img{
+    margin-top: 10px;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.box p{
+    display: flex;
+    margin: 1px;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    width: 150px;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+}
+
+.box a{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.lister{
+    margin-left: 1500px;
+
+}
+

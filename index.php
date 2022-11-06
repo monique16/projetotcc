@@ -103,15 +103,14 @@ session_start();
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
+
+    <div style="margin-right: 40px">
+
       <img style="margin-left: 60px" class="rounded-circle mt-3 mb-3" height="200" width="200" src="imageview/<?php echo $_SESSION['foto_aluno'] ?>">
       <br>
-      <div style="margin-right: 40px">
-  
+
       <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-face-smile"></i> <b>Nome:</b>
         <?php echo $_SESSION['nome'] ?></div>
-
-      <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-star"></i></i> <b>Data de Nascimento:</b>
-          <?php echo $_SESSION['data_nascimento'] ?></div>
 
       <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-file"></i> <b>CPF:</b>
         <?php echo $_SESSION['cpf'] ?></div>
@@ -147,11 +146,12 @@ session_start();
       <?php
       };
       ?>
-      </div>
     </div>
   </div>
 </div>
 </div>
+</div>
+
 
 
 
@@ -186,7 +186,7 @@ session_start();
     <div class="carousel-item">
       <img src="imagens/banner.png" alt="Chicago" class="d-block" style="width:100%">
       <div class="carousel-caption" style="margin-bottom: 70px;">
-        <h3 style=" font-size: 40px;">CLICKSCHOOL</h3>
+        <h3 style=" font-size: 40px;">CLICK ESCOLA</h3>
         <h4 class="mb-5"> Sistema de gestão escolar para responsáveis </h4>
         <a href="#sobre" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">
           Sobre a escola</a>
@@ -197,7 +197,7 @@ session_start();
     <div class="carousel-item">
       <img src="imagens/banner.png" alt="New York" class="d-block" style="width:100%">
       <div class="carousel-caption" style="margin-bottom: 70px;">
-        <h3 style=" font-size: 40px;">CLICKSCHOOL</h3>
+        <h3 style=" font-size: 40px;">CLICK ESCOLA</h3>
         <h4 class="mb-5"> Sistema de gestão escolar para responsáveis </h4>
         <a href="#sobre" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">
           Sobre a escola</a>

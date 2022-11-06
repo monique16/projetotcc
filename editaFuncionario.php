@@ -16,7 +16,7 @@ if (isset($_POST['btnSalvar'])) { // Realiza a alteração no BD
     $senha_funcionario = $_POST['senha_funcionario'];
     $funcao = $_POST['funcao'];
     $turno = $_POST['turno'];
-   
+
 
     $sql = "UPDATE funcionarios SET 
                 nome_funcionario='$nome_funcionario',
@@ -40,42 +40,63 @@ $sql = "SELECT * FROM funcionarios WHERE cod_funcionario=$cod";
 $rs = mysqli_query($conn, $sql);
 $linha = mysqli_fetch_array($rs);
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <title>Login</title>
+</head>
 <?php include('menu.php'); ?>
-<div class='container'>
-    <h3 class='p-3'>Alterar usuário</h3>
+<div class="main-login">
+    <div class='left-login'>
+        <img src="imagens/edita.svg" class="left-login-image" alt="Cell Animado">
+    </div>
 
     <form method="post">
-        <div class="form-group">
-            Nome: <input class='form-control' type="text" name="nome_funcionario" value="<?php echo $linha['nome_funcionario'] ?>" />
-        </div>
-        <div class="form-group">
-            CPF: <input class='form-control' type="text" name="cpf" value="<?php echo $linha['cpf'] ?>" />
-        </div>
-        <div class="form-group">
-            Email: <input class='form-control' type="email" name="email" value="<?php echo $linha['email'] ?>" />
-        </div>
-        <div class="form-group">
-            Senha: <input class='form-control' type="password" name="senha_funcionario" value="<?php echo $linha['senha_funcionario'] ?>" />
-        </div>
-        <div class="form-group">
-            Função: <input class='form-control' type="text" name="funcao" value="<?php echo $linha['funcao'] ?>" />
-        </div>
-        <div class="form-group">
-            Turno: <input class='form-control' type="text" name="turno" value="<?php echo $linha['turno'] ?>" />
-        </div>
-        <div class="form-group">
-            <input class='btn btn-success' type="submit" value="Salvar dados" name="btnSalvar" />
-            <input class='btn btn-info' type="reset" value="Limpar campos" />
-        </div>
-    </form>
-</div>
+        <div class="right-login">
+            <div class="card-login">
+                <div class="row">
+                    <h2> EDITAR CADASTRO </h2>
 
-<div>
-    <footer class="footer mt-auto py-3">
-      <div class="container fluid">
-        <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
-      </div>
-    </footer>
-</div>
+                        <div class="textfield">
+                            Nome: <input class='form-control' type="text" name="nome_funcionario" value="<?php echo $linha['nome_funcionario'] ?>" />
+                        </div>
+                        <div class="textfield">
+                            CPF: <input class='form-control' type="text" name="cpf" value="<?php echo $linha['cpf'] ?>" />
+                        </div>
+                        <div class="textfield">
+                            Email: <input class='form-control' type="email" name="email" value="<?php echo $linha['email'] ?>" />
+                        </div>
+                        <div class="textfield">
+                            Senha: <input class='form-control' type="password" name="senha_funcionario" value="<?php echo $linha['senha_funcionario'] ?>" />
+                        </div>
+                        <div class="textfield">
+                            Função: <input class='form-control' type="text" name="funcao" value="<?php echo $linha['funcao'] ?>" />
+                        </div>
+                        <div class="textfield">
+                            Turno: <input class='form-control' type="text" name="turno" value="<?php echo $linha['turno'] ?>" />
+                        </div>
+                        <div class="form-group">
+                            <input class='btn-login' type="submit" value="Salvar dados" name="btnSalvar" />
+                            <input class='btn-login' type="reset" value="Limpar campos" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
 
-</body>
+                <div>
+                    <footer class="footer mt-auto py-3">
+                        <div class="container fluid">
+                            <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
+                        </div>
+                    </footer>
+                </div>
+
+</html>

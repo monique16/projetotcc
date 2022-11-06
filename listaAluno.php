@@ -12,47 +12,38 @@ include('menu.php');
 $sql = "SELECT * FROM alunos";
 $query = mysqli_query($conn, $sql);
 ?>
-<div id="lista">
-    <div class='container'>
-        <h3 class='p-3'>Alunos cadastrados</h3>
 
-        <a href="cadastraAluno.php" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">Cadastrar novo</a>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/listagem.css">
+    <link rel="stylesheet" href="css/tela-evento.css">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+<div class="main-box">
+    <div class="card-eventos" style="padding-bottom: 200px;">
+        <h3 class="title" style="margin-top:40px; margin-bottom:60px;">Alunos cadastrados</h3>
 
-        <table class='table table-hover'>
-            <tr>
-                <td>Código</td>
-                <td>Nome</td>
-                <td>CPF</td>
-                <td>Email</td>
-                <td>Senha</td>
-                <td>Turno</td>
-                <td>Matricula</td>
-                <td>Foto</td>
-                <td>Série</td>
-                <td>Recado</td>
-                <td>Data de nascimento</td>
-                <td>Data de ingresso</td>
-            </tr>
 
-            <?php while ($dados = mysqli_fetch_array($query)) { ?>
-                <tr>
-                    <td><?php echo $dados['cod_aluno'] ?></td>
-                    <td><?php echo $dados['nome_aluno'] ?></td>
-                    <td><?php echo $dados['cpf'] ?></td>
-                    <td><?php echo $dados['email'] ?></td>
-                    <td><?php echo $dados['senha_aluno'] ?></td>
-                    <td><?php echo $dados['turno'] ?></td>
-                    <td><?php echo $dados['matricula'] ?></td>
-                    <td> <img height="80" width="80" src="imageview/<?php echo $dados['foto_aluno'] ?>"> </td>
-                    <td><?php echo $dados['serie'] ?></td>
-                    <td><?php echo $dados['recado'] ?></td>
-                    <td><?php echo $dados['data_nascimento'] ?></td>
-                    <td><?php echo $dados['data_ingresso'] ?></td>
-                    <td colspan="2" class="text-center"><a class='btn btn-info btn-sm' href='editaAluno.php?cod_aluno=<?php echo $dados['cod_aluno'] ?>'><i class="fa-solid fa-pencil"></i></a>
-                    <a class='btn btn-danger btn-sm' href='#' onclick='confirmar("<?php echo $dados['cod_aluno'] ?>")'><i class="fa-solid fa-trash-can"></i></a></td>
-                </tr>
+        <div class="list container">
+        <?php while ($dados = mysqli_fetch_array($query)) { ?>
+        <div class="box"> 
+        
+                    <a><?php echo $dados['nome_aluno'] ?></a>
+                    <img height="80" width="80" src="imageview/<?php echo $dados['foto_aluno'] ?>"> 
+                    <p class="user-turma"><?php echo $dados['serie'] ?></p>
+                    <p class="user-serie"><?php echo $dados['matricula'] ?></p>
+                    <p class="user-serie"><?php echo $dados['data_nascimento'] ?></p>
+                </div>
+
             <?php } ?>
-        </table>
+            <a href="cadastraAluno.php" style="margin-right: 50px ;" class="btn button-primay btn-primary  lister">Cadastrar novo</a>
+
+            </div>
     </div>
 </div>
 <script>

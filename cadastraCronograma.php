@@ -10,12 +10,16 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
 
 
 if (isset($_POST['btnSalvar'])) {
-    $dia_cronograma = $_POST['dia_cronograma'];
     $horario_cronograma =  $_POST['horario_cronograma'];
-    $disciplina = $_POST ['disciplina'];
+    $disciplina_seg = $_POST ['disciplina_seg'];
+    $disciplina_terc = $_POST ['disciplina_terc'];
+    $disciplina_quar = $_POST ['disciplina_quar'];
+    $disciplina_quin = $_POST ['disciplina_quin'];
+    $disciplina_sext = $_POST ['disciplina_sext'];
 
-    $sql = "INSERT INTO cronograma (dia_cronograma, horario_cronograma, disciplina)
-            VALUES ('$dia_cronograma', '$horario_cronograma', '$disciplina')";
+
+    $sql = "INSERT INTO cronograma (horario_cronograma, disciplina_seg, disciplina_terc, disciplina_quar, disciplina_quin, disciplina_sext)
+            VALUES ('$horario_cronograma', '$disciplina_seg', '$disciplina_terc', '$disciplina_quar', '$disciplina_quin', '$disciplina_sext')";
 echo $sql;  
     mysqli_query($conn, $sql);
 
@@ -27,7 +31,15 @@ echo $sql;
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
 <body>
     <div class="container">
         <div class="row">
@@ -39,17 +51,29 @@ echo $sql;
             <div class="col-12">
                 <form action="cadastraCronograma.php" id="formNovoCronograma" method="POST">
                     <div class="row g-3">
-                        <div class="col-12">
-                            <label for="dia_cronograma" class="form-label">Dia da Semana</label>
-                            <input type="text" name="dia_cronograma" id="dia_cronograma" class="form-control">
-                        </div>
                         <div class="col-6">
                             <label for="horario_cronograma" class="form-label">Hora das aulas</label>
                             <input type="time" name="horario_cronograma" id="horario_cronograma" class="form-control">
                         </div>
                         <div class="col-6">
-                            <label for="disciplina" class="form-label">Matérias do dia</label>
-                            <input type="text" name="disciplina" id="disciplina" class="form-control">
+                            <label for="disciplina_seg" class="form-label">Segunda-feira</label>
+                            <input type="text" name="disciplina_seg" id="disciplina_seg" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="disciplina_terc" class="form-label">Terça-feira</label>
+                            <input type="text" name="disciplina_terc" id="disciplina_terc" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="disciplina_quar" class="form-label">Quarta-feira</label>
+                            <input type="text" name="disciplina_quar" id="disciplina_quar" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="disciplina_quin" class="form-label">Quinta-feira</label>
+                            <input type="text" name="disciplina_quin" id="disciplina_quin" class="form-control">
+                        </div>
+                        <div class="col-6">
+                            <label for="disciplina_sext" class="form-label">Sexta-feira</label>
+                            <input type="text" name="disciplina_sext" id="disciplina_sext" class="form-control">
                         </div>
                         <div class="col-12">
                             <div id="mensagemErro" class="alert alert-danger d-none" role="alert">

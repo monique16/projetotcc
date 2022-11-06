@@ -1,27 +1,16 @@
 <?php
-include('conexao.php');
-/*session_start();
-
-if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
-    header("location: index.php");
-    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
-    exit;*/
-
-$sql = "SELECT * FROM recados";
-$query = mysqli_query($conn, $sql);
+include("menu.php");
 ?>
-
+<!--**
+ * @author Cesar Szpak - Celke - cesar@celke.com.br
+ * @pagina desenvolvida usando FullCalendar e Bootstrap 4,
+ * o código é aberto e o uso é free, 
+ * porém lembre-se de conceder os créditos ao desenvolvedor.
+ *-->
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 
 <head>
-  <title>Click Escola</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <header>
     <!-- Meta tags necessárias -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,134 +20,199 @@ $query = mysqli_query($conn, $sql);
     <script src="https://kit.fontawesome.com/74e138c6b6.js" crossorigin="anônimo"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
     <!-- CSS -->
+    <link href='css/core/main.min.css' rel='stylesheet' />
+    <link href='css/daygrid/main.min.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/personalizado.css">
     <link rel="stylesheet" href="css/magnific-popup.css" />
     <link rel="stylesheet" href="css/principal.css" />
     <link rel="stylesheet" tipo="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <script src='js/core/main.min.js'></script>
+    <script src='js/interaction/main.min.js'></script>
+    <script src='js/daygrid/main.min.js'></script>
+    <script src='js/core/locales/pt-br.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/personalizado.js"></script>
+    <title>Clique Escola</title>
 
-    <!-- CABEÇALHO -->
-    <div id="header" style="margin-bottom: 20px;">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="colapse navbar-colapse"></div>
-          <a class="navbar-brand" href="#">
-            <img src="imagens/logon.png" class="img-fluid" />
-          </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Navegação alternada">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="colapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page"><i id="header-toggle" class="fa-solid fa-user"></i></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link ativo" aria-corrente="page" href="index.php">Início</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link ativo" aria-corrente="page" href="cardapio.php">Cardápio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="cronograma.php">Cronograma</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link ativo" aria-corrente="page" href="eventos.php">Eventos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link ativo" aria-corrente="page" href="recados.php">Recados</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="cadastraAluno.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
-                  Aluno
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="cadastraAluno.php">Cadastrar Aluno</a></li>
-                  <li><a class="dropdown-item" href="listaAluno.php">Listar Aluno</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
-                  Funcionário
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="cadastraFuncionario.php">Cadastrar Funcioário</a></li>
-                  <li><a class="dropdown-item" href="listaFuncionario.php">Listar Funcionário</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-      </div>
-      </nav>
-
-    </div>
-    </div>
-    <!-- //HEADER -->
 </head>
 
 <body>
+    <?php
+    if (isset($_SESSION['msg'])) {
+        echo $_SESSION['msg'];
+        unset($_SESSION['msg']);
+    }
+    ?>
+    <div id='calendar'></div>
+
+    <div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalhes do Evento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="visevent">
+                        <dl class="row">
+                            <dt class="col-sm-3">ID do evento</dt>
+                            <dd class="col-sm-9" id="id"></dd>
+
+                            <dt class="col-sm-3">Título do evento</dt>
+                            <dd class="col-sm-9" id="title"></dd>
+
+                            <dt class="col-sm-3">Início do evento</dt>
+                            <dd class="col-sm-9" id="start"></dd>
+
+                            <dt class="col-sm-3">Fim do evento</dt>
+                            <dd class="col-sm-9" id="end"></dd>
+                        </dl>
+                        <button class="btn btn-warning btn-canc-vis">Editar</button>
+                        <a href="" id="apagar_evento" class="btn btn-danger">Apagar</a>
+                    </div>
+                    <div class="formedit">
+                        <span id="msg-edit"></span>
+                        <form id="editevent" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="id" id="id">
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Título</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="Título do evento">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Color</label>
+                                <div class="col-sm-10">
+                                    <select name="color" class="form-control" id="color">
+                                        <option value="">Selecione</option>
+                                        <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
+                                        <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
+                                        <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+                                        <option style="color:#8B4513;" value="#8B4513">Marrom</option>
+                                        <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
+                                        <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
+                                        <option style="color:#A020F0;" value="#A020F0">Roxo</option>
+                                        <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
+                                        <option style="color:#228B22;" value="#228B22">Verde</option>
+                                        <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Início do evento</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Final do evento</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="end" class="form-control" id="end" onkeypress="DataHora(event, this)">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-10">
+                                    <button type="button" class="btn btn-primary btn-canc-edit">Cancelar</button>
+                                    <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-warning">Salvar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="cadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cadastrar Evento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <span id="msg-cad"></span>
+                    <form id="addevent" method="POST" enctype="multipart/form-data">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Título</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="title" class="form-control" id="title" placeholder="Título do evento">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Color</label>
+                            <div class="col-sm-10">
+                                <select name="color" class="form-control" id="color">
+                                    <option value="">Selecione</option>
+                                    <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
+                                    <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
+                                    <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+                                    <option style="color:#8B4513;" value="#8B4513">Marrom</option>
+                                    <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
+                                    <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
+                                    <option style="color:#A020F0;" value="#A020F0">Roxo</option>
+                                    <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
+                                    <option style="color:#228B22;" value="#228B22">Verde</option>
+                                    <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Início do evento</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="start" class="form-control" id="start" onkeypress="DataHora(event, this)">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Final do evento</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="end" class="form-control" id="end" onkeypress="DataHora(event, this)">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-success">Cadastrar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dieta" class="block">
   <div class="container">
     <div class="row">
-      <div class="col mb-4 mt-4 title text-center">
-        <h1>Recados</h1>
+      <div class="col-md-5 text-center align-self-center order-md-1 order-2">
+        <img src="imagens/logo.png" class="img-fluid" />
       </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col">
-        <h2>
-
-        </h2>
-      </div>
-      <div class="col-auto">
-        <a href="cadastraRecado.php" class="btn btn-success" id="buttonNovoRecado">Novo Recado</a>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Código</th>
-              <th scope="col">Nome</th>
-              <th scope="col">Data</th>
-              <th scope="col">Hora</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody id="tabelaRecados">
-            <?php while ($dados = mysqli_fetch_array($query)) { ?>
-              <tr>
-                <td><?php echo $dados['cod_recado'] ?></td>
-                <td><?php echo $dados['nome_recado'] ?></td>
-                <td><?php echo $dados['data_recado'] ?></td>
-                <td><?php echo $dados['hora_recado'] ?></td>
-                <td></td>
-              </tr>
-            <?php } ?>
-
-          </tbody>
-        </table>
+      <div class="col-md-6 align-self-center mb-md-0 mb-4 order-md-2 order-1">
+        <h2 class="title">dieta escolar</h2>
+        <h4 class="subtitle">saiba mais como funciona o cardapio escolar dos alunos</h4>
+        <p> A escola conta com a modalidade de Ensino Regular,
+          a qual hoje atende 217 alunos, e diversas comunidades, distribuídos do Infantil V ao 9° ano.
+        </p>
       </div>
     </div>
   </div>
-
-  <div>
-    <footer class="footer mt-auto py-3">
-      <div class="container fluid">
-        <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
-      </div>
-    </footer>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-
-  <script src="js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="js/isotope.pkgd.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/main.js"></script>
-  <!-- <script src="js/agenda.js"></script> -->
-
+</div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 
+<script src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </html>
