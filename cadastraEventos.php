@@ -110,12 +110,16 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
                         <b>Evento</b>
                         <select class="textfield" type="text" name="nome_evento" class="form-select">
                     <option selected></option>
-                        <option value="junina">Festa Junina</option>
-                        <option value="familia">Festa da Família</option>
-                        <option value="especiais">Dias especiais</option>
-                        <option value="passeio">Passeios</option>
+                        <option value="Festa Junina">Festa Junina</option>
+                        <option value="Festa da Família">Festa da Família</option>
+                        <option value="Dias Especiais">Dias especiais</option>
+                        <option value="Passeio">Passeios</option>
                         <option value="FASE">FASE</option>
-                        <option value="alunos">Nossos alunos</option>
+                        <option value="Nossos Alunos">Nossos alunos</option>
+                        <option value="Nossos Funcionários">Nossos funcionários</option>
+                        <option value="Atividades Escolares">Atividades Escolares</option>
+                        <option value="Outros">Outros</option>
+
                         </select>
                     </div>
 

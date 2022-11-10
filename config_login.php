@@ -3,7 +3,7 @@
 
 require_once "config.php";
 
-$username = $password = "";
+$funcionario = $username = $password = "";
 $username_err = $password_err = "";
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -61,6 +61,7 @@ echo"funcionario: ".$funcionario;
                                     session_start();
                                     $_SESSION["loggedin"] = true;
                                     $_SESSION["cod"] = $id;
+                                    $_SESSION["foto"] = $foto_funcionario;
                                     $_SESSION["nome"] = $nome_funcionario;
                                     $_SESSION["cpf"] = $cpf;
                                     $_SESSION["email"] = $email; 
@@ -83,7 +84,7 @@ echo"funcionario: ".$funcionario;
                 }
         }else{
             $sql = "SELECT * FROM alunos WHERE email = :username";
-            echo"$sql";
+            
             if($stmt = $pdo->prepare($sql)){
                 $stmt->bindParam(":username", $param_username, PDO::PARAM_STR);
             
@@ -116,7 +117,7 @@ echo"funcionario: ".$funcionario;
                                         session_start();
                                         $_SESSION["loggedin"] = true;
                                         $_SESSION["cod"] = $id;
-                                        $_SESSION["foto_aluno"] = $foto_aluno;
+                                        $_SESSION["foto"] = $foto_aluno;
                                         $_SESSION["nome"] = $nome_aluno;
                                         $_SESSION["cpf"] = $cpf;
                                         $_SESSION["email"] = $email; 

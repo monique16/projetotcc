@@ -3,10 +3,10 @@ include('conexao.php'); // importa o arquivo de conexao com o BD
 
 /*session_start();
 
-if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+if(!isset($_SESSION["funcionario"]) || $_SESSION["funcionario"] === false){
     header("location: index.php");
-    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
-    exit;*/
+    exit;
+}*/
 
 if (isset($_POST['btnSalvar'])) {
 

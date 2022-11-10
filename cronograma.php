@@ -1,11 +1,13 @@
 <?php
 include('conexao.php');
-/*session_start();
+include('menu.php');
 
-if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
-    header("location: index.php");
-    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
-    exit;*/
+
+//if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+// header("location: index.php");
+//}
+
+
 
 $sql = "SELECT * FROM cronograma";
 $query = mysqli_query($conn, $sql);
@@ -19,13 +21,14 @@ $query = mysqli_query($conn, $sql);
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Meta tags necessárias -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anônimo"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anônimo">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anônimo"></script>
   <!-- FONT AWESONME -->
   <script src="https://kit.fontawesome.com/74e138c6b6.js" crossorigin="anônimo"></script>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
@@ -33,70 +36,14 @@ $query = mysqli_query($conn, $sql);
   <link rel="stylesheet" href="css/magnific-popup.css" />
   <link rel="stylesheet" href="css/principal.css" />
   <link rel="stylesheet" tipo="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-</head>
-<!-- CABEÇALHO -->
-<div id="header" style="margin-bottom: 20px;">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="colapse navbar-colapse"></div>
-      <a class="navbar-brand" href="#">
-        <img src="imagens/logon.png" class="img-fluid" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Navegação alternada">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="colapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"><i id="header-toggle" class="fa-solid fa-user"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ativo" aria-corrente="page" href="index.php">Início</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ativo" aria-corrente="page" href="cardapio.php">Cardápio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="cronograma.php">Cronograma</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ativo" aria-corrente="page" href="eventos.php">Eventos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ativo" aria-corrente="page" href="recados.php">Recados</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="cadastraAluno.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
-              Aluno
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="cadastraAluno.php">Cadastrar Aluno</a></li>
-              <li><a class="dropdown-item" href="listaAluno.php">Listar Aluno</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
-              Funcionário
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="cadastraFuncionario.php">Cadastrar Funcioário</a></li>
-              <li><a class="dropdown-item" href="listaFuncionario.php">Listar Funcionário</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-  </div>
-  </nav>
-
-</div>
-<!-- //HEADER -->
+  </head>
 
 
 <body>
 
-  <div class="cronograma">
-    <h2 class="title text-center mt-5 mb-5">Cronograma</h2>
-    <div class="container text-center">
+<div class="cronograma">
+    <h2 class="title text-center mb-5">Cronograma</h2>
+    <div class="container text-center">   
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="infantil-i-tab" data-bs-toggle="tab" data-bs-target="#infantil-i" type="button" role="tab" aria-controls="infantil-i" aria-selected="true">Infantil I</button>
@@ -168,13 +115,16 @@ $query = mysqli_query($conn, $sql);
               </button>
             </div>
           </div>
-
+          
           <div class="hora row container">
             <?php while ($dados = mysqli_fetch_array($query)) { ?>
               <div class="cronograma row container">
-                <div class="grade col-auto">
-                  <a colspan="2" class="text-center"><a class='btn btn-primary' href='editaCronograma.php?cod_cronograma=<?php echo $dados['cod_cronograma'] ?>'>Editar</a>
-                  </a>
+                <div class="grade col-auto" style="margin-top: 20px;">
+
+                <?php if ($_SESSION["funcionario"] === true) { ?>
+                <a colspan="2" class="text-center"><a class='btn btn-primary' href='editaCronograma.php?cod_cronograma=<?php echo $dados['cod_cronograma'] ?>'>Editar</a>
+                <?php } ?>
+
                   <button type="button" class="btn button-primay btn-primary" disabled> <?php echo $dados['horario_cronograma'] ?></button>
                   <a type="text" class="btn grid" style="margin-left: 50px;" disabled> <?php echo $dados['disciplina_seg'] ?></a>
                   <a type="text" class="btn grid" style="margin-left: 140px;" disabled> <?php echo $dados['disciplina_terc'] ?></a>
@@ -186,6 +136,7 @@ $query = mysqli_query($conn, $sql);
             <?php } ?>
 
           </div>
+          
         </div>
 
         <div class="tab-pane fade" id="infantil-ii" role="tabpanel" aria-labelledby="infantil-ii-tab">Cronograma Infantil II
@@ -203,8 +154,7 @@ $query = mysqli_query($conn, $sql);
         <div class="tab-pane fade" id="nono" role="tabpanel" aria-labelledby="nono-tab">Cronograma 9° ano</div>
       </div>
     </div>
-  </div>
-
+</div>
 
 
   <div>
@@ -214,7 +164,6 @@ $query = mysqli_query($conn, $sql);
       </div>
     </footer>
   </div>
-</body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 
 <script src="js/bootstrap.min.js"></script>
@@ -225,6 +174,6 @@ $query = mysqli_query($conn, $sql);
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+</body>
 
 </html>

@@ -1,5 +1,6 @@
 <?php
 include('conexao.php');
+include('menu.php');
 /*session_start();
 
 if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
@@ -34,60 +35,6 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
 </head>
 <body>
 
-<!-- CABEÇALHO -->
-<div id="header" style="margin-bottom: 20px;">
-  <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="colapse navbar-colapse"></div>
-      <a class="navbar-brand" href="#">
-        <img src="imagens/logon.png" class="img-fluid" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Navegação alternada">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="colapse navbar-collapse justify-content-end" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page"><i id="header-toggle" class="fa-solid fa-user"></i></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ativo" aria-corrente="page" href="index.php">Início</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ativo" aria-corrente="page" href="cardapio.php">Cardápio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="cronograma.php">Cronograma</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ativo" aria-corrente="page" href="eventos.php">Eventos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link ativo" aria-corrente="page" href="recados.php">Recados</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="cadastraAluno.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
-              Aluno
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="cadastraAluno.php">Cadastrar Aluno</a></li>
-              <li><a class="dropdown-item" href="listaAluno.php">Listar Aluno</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
-              Funcionário
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="cadastraFuncionario.php">Cadastrar Funcioário</a></li>
-              <li><a class="dropdown-item" href="listaFuncionario.php">Listar Funcionário</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
-</div>
 
 
 <?php
@@ -126,11 +73,13 @@ $query = mysqli_query($conn, $sql);
             </div>
           </div>
         <?php } ?>
+        <?php if ($_SESSION["funcionario"] === true) { ?>
+
         <a colspan="2" class="text-center"><a class='btn' href='cadastraEventos.php'><i style="font-size:80px;" class="fa-solid fa-camera"></i></a>
-      </a>
+        <?php } ?>
+
       </div>
     </div>
-  </div>
   </div>
 
 </body>

@@ -72,9 +72,12 @@ include("menu.php");
                             <dt class="col-sm-3">Fim do evento</dt>
                             <dd class="col-sm-9" id="end"></dd>
                         </dl>
-                        <button class="btn btn-warning btn-canc-vis">Editar</button>
-                        <a href="" id="apagar_evento" class="btn btn-danger">Apagar</a>
+                        <?php if ($_SESSION["funcionario"] === true) { ?>
+
+                            <button class="btn btn-warning btn-canc-vis">Editar</button>
+                            <a href="" id="apagar_evento" class="btn btn-danger">Apagar</a>
                     </div>
+
                     <div class="formedit">
                         <span id="msg-edit"></span>
                         <form id="editevent" method="POST" enctype="multipart/form-data">
@@ -182,28 +185,32 @@ include("menu.php");
                             <div class="col-sm-10">
                                 <button type="submit" name="CadEvent" id="CadEvent" value="CadEvent" class="btn btn-success">Cadastrar</button>
                             </div>
+                        <?php } ?>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+
+
     <div id="dieta" class="block">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-5 text-center align-self-center order-md-1 order-2">
-        <img src="imagens/logo.png" class="img-fluid" />
-      </div>
-      <div class="col-md-6 align-self-center mb-md-0 mb-4 order-md-2 order-1">
-        <h2 class="title">dieta escolar</h2>
-        <h4 class="subtitle">saiba mais como funciona o cardapio escolar dos alunos</h4>
-        <p> A escola conta com a modalidade de Ensino Regular,
-          a qual hoje atende 217 alunos, e diversas comunidades, distribuídos do Infantil V ao 9° ano.
-        </p>
-      </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 text-center align-self-center order-md-1 order-2">
+                    <img src="imagens/logo.png" class="img-fluid" />
+                </div>
+                <div class="col-md-6 align-self-center mb-md-0 mb-4 order-md-2 order-1">
+                    <h2 class="title">dieta escolar</h2>
+                    <h4 class="subtitle">saiba mais como funciona o cardapio escolar dos alunos</h4>
+                    <p> A escola conta com a modalidade de Ensino Regular,
+                        a qual hoje atende 217 alunos, e diversas comunidades, distribuídos do Infantil V ao 9° ano.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 
@@ -215,4 +222,5 @@ include("menu.php");
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 </html>

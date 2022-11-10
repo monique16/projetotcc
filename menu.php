@@ -1,10 +1,10 @@
 <?php
-/*session_start();
+session_start();
 
-if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+/*if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
     header("location: index.php");
-    /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
-    exit;*/
+}*/
+
 ?>
 
 <!doctype html>
@@ -40,41 +40,52 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
                 </button>
                 <div class="colapse navbar-collapse justify-content-end" id="navbarNavDropdown">
                     <ul class="navbar-nav">
+                        <li class="nav-link active" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                        <i id="header-toggle" class="fa-solid fa-user"></i>
+                        </li>  
+
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"><i id="header-toggle" class="fa-solid fa-user"></i></a>
+                            <a class="nav-link active" aria-corrente="page" href="index.php">Início</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ativo" aria-corrente="page" href="index.php">Início</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link ativo" aria-corrente="page" href="cardapio.php">Cardápio</a>
+                            <a class="nav-link active" aria-corrente="page" href="cardapio.php">Cardápio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="cronograma.php">Cronograma</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link ativo" aria-corrente="page" href="eventos.php">Eventos</a>
+                            <a class="nav-link active" aria-corrente="page" href="eventos.php">Eventos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-corrente="page" href="recados.php">Recados</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="cadastraAluno.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Aluno
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="cadastraAluno.php">Cadastrar Aluno</a></li>
-                                <li><a class="dropdown-item" href="listaAluno.php">Listar Aluno</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
-                                Funcionário
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="cadastraFuncionario.php">Cadastrar Funcioário</a></li>
-                                <li><a class="dropdown-item" href="listaFuncionario.php">Listar Funcioário</a></li>
-                            </ul>
+                        <?php
+                        if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
+
+                         if ($_SESSION["funcionario"] === true) { ?>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="cadastraAluno.php" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Aluno
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="cadastraAluno.php">Cadastrar Aluno</a></li>
+                                    <li><a class="dropdown-item" href="listaAluno.php">Listar Aluno</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="cadastraFuncionario.php" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" expandida="falso">
+                                    Funcionário
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="cadastraFuncionario.php">Cadastrar Funcioário</a></li>
+                                    <li><a class="dropdown-item" href="listaFuncionario.php">Listar Funcioário</a></li>
+                                </ul>
+                            </li>
+                        <?php }} ?>
+                        
+
+                        <li class="nav-item">
+                            <a href="logout.php" class="nav-link active" aria-current="page"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>     Sair</a>
                         </li>
                     </ul>
                 </div>
@@ -82,7 +93,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
         </nav>
 
     </div>
-    
+
     <!-- //HEADER -->
 
 </html>

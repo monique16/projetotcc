@@ -38,6 +38,7 @@ $query = mysqli_query($conn, $sql);
                     <p class="user-turma"><?php echo $dados['serie'] ?></p>
                     <p class="user-serie"><?php echo $dados['matricula'] ?></p>
                     <p class="user-serie"><?php echo $dados['data_nascimento'] ?></p>
+                    
                 </div>
 
             <?php } ?>

@@ -115,7 +115,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
             <span class="badge">Festa Junina</span>
           </p>
         </div>
-        <div class="col-lg-4 col-6 mb-4 element-item website junina">
+        <div class="col-lg-4 col-6 mb-4    element-item website junina">
           <a href="imagens/junina2.jpg" class="popup-link">
             <img src="imagens/junina2.jpg" class="img-fluid mb-2" />
           </a>

@@ -29,8 +29,8 @@ body {
 #header .nav-link {
   text-transform: uppercase;
   font-weight: 500;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
   color: #000;
   border-bottom: solid 4px transparent;
 }
@@ -46,10 +46,6 @@ body {
   font-family:"Roboto", sans-serif;
   background-color: rgb(235, 235, 235);
 }
-
-
-
-
 
 /* Slider */
 
@@ -73,7 +69,6 @@ body {
 /* Plataforma */ 
 
 #plataforma {
-  background-color: var(--secondary);
   padding-top: 30px;
   padding-bottom: 40px;
 }
@@ -111,77 +106,6 @@ body {
   height: 150px;
   border-radius: 100px;
 }
-
-
-/* Evento */ 
-
-#servicos {
-    border-radius: 5px;
-    background-color: var(--orange);
-    color: black;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 30px;
-    margin-left: 80px;
-    margin-right: 120px;
-
-}
-
-#servicos .button-group {
-    padding-bottom: 15px;
-    padding-top: 15px;
-}
-
-#servicos .title {
-    padding-top: 40px;
-}
-
-#servicos .subtitle {
-    color: #fff;
-}
-
-#servicos .badge {
-    font-weight: 400;
-    border: 1px solid var(--primary-dark);
-    border-radius: 8px;
-    background-color: var(--orange);
-    color: var(--primary-dark);
-  }
-  
-  #servicos .element-item img {
-    border-radius: 5px;
-    transition: all ease-out 0.2s;
-  }
-  
-  #servicos .element-item img:hover {
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.4);
-  }
-  
-  #servicos .button-group {
-    margin-bottom: 30px;
-    border-bottom: solid 4px transparent;
-  }
-  
-  #servicos .button-group button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    text-transform: uppercase;
-    font-weight: 700;
-    outline: none;
-  }
-  
-  #servicos .button-group button + button {
-    margin-left: 30px;
-  }
-  
-  #servicos .button-group button.active {
-    color: var(--primary-dark);
-  }
 
 /* Rodapé index */
 
@@ -277,50 +201,7 @@ body {
       margin: -20px;
     }
 
-    /* Cadastros */
-
-    #cadastros {
-        border-radius: 5px;
-        background-color: var(--orange);
-        color: #a54201;;
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 30px;
-        margin-left: 80px;
-        margin-right: 120px;
-        }
-    #cadastros .form-group {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #a54201;
-      padding: 10px 0px 10px 0px;
-    }
-
-    /* Listas */ 
-
-    #lista {
-      border-radius: 5px;
-      background-color: var(--orange);
-      color: #a54201;;
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 30px;
-      margin-top: 30px;
-      margin-left: 80px;
-      margin-right: 120px;
-
-      }
-      
-    #lista table {
-      font-family: Arial, Helvetica, sans-serif;
-      color: #a54201;
-      padding: 10px 0px 10px 0px;
-      }
+ 
 
     /* Menu lateral */ 
 
@@ -449,7 +330,6 @@ body {
 
 .cronograma{
   font-size: 16pt;
-  margin-top: 50px;
 }
 
 .botao{
@@ -457,7 +337,6 @@ body {
   margin-bottom: 40px;
 }
 
-/* Cronograma */
 
 .grid{
   border: 1px solid black;
