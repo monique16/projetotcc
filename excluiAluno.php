@@ -15,3 +15,4 @@ if (mysqli_affected_rows($conn) > 0) {
     echo $conn->error;
 }
 
+?>

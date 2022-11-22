@@ -29,34 +29,49 @@ body {
 #header .nav-link {
   text-transform: uppercase;
   font-weight: 500;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
   color: #000;
   border-bottom: solid 4px transparent;
 }
 
 #header .nav-link:hover {
-  border-bottom: solid 4px var(--secondary);
-  color: var(--secondary);
+  border-bottom: solid 4px rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
 }
 
 /* Menu lateral */
-#offcanvasNavbar {
-  padding-left: 40px;
+.offcanvas {
+  padding-left: 8px;
   font-family:"Roboto", sans-serif;
-  background-color: rgb(235, 235, 235);
+  background-color: #BBE0FF;
 }
 
-/* Slider */
-
-#slider h1 {
-    text-transform: uppercase;
-    font-weight: 900;
+.imagem{
+  border: 1px #FF7100;
 }
 
-#slider h4 {
-    font-size: 18px;
-    text-transform: uppercase;
+
+.lateral {
+  width: 110%;
+}
+
+.lateral b {
+  color: #FF7100;
+}
+
+.campo{
+background-color: white;
+}
+
+
+#demo a{
+  background-color: #FF7100;
+  border: #FF7100;
+}
+
+#demo h3{
+  color: #FF7100;
 }
 
 /* Escola */
@@ -65,6 +80,8 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+
 
 /* Plataforma */ 
 
@@ -75,7 +92,7 @@ body {
 
 #plataforma a.destaques {
     display: block;
-    background: var(--light);
+    background: #dbdbdb;
     border-radius: 5px;
     text-align: center;
     padding: 20px;
@@ -85,13 +102,13 @@ body {
 }
 
 #plataforma a.destaques:hover {
-    background: #fff;
+    background: rgb(95, 95, 95);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.12);
     transform: scale(1.05);
 }
 
 #plataforma p {
-    color: var(--dark);
+    color: #000000;
 }
 
 #plataforma a.destaques .img-container {
@@ -120,8 +137,8 @@ body {
   }
   
   .contact-box i {
-    color: var(--primary-dark);
-    border: solid 1px rgb(53, 52, 52);
+    color: #FF7100;
+    border: solid 1px #FF7100;
     border-radius: 50%;
     width: 55px;
     height: 55px;
@@ -136,13 +153,13 @@ body {
   
   .contact-tile {
     font-weight: bold;
-    color: var(--primary);
+    color: #FF7100;
   }
   
   #contact-area #rodape {
     border-radius: 5px;
-    background-color: var(--secondary);
-    color: #fff;
+    background-color: #BBE0FF;
+    color: black;
     position: relative;
     display: flex;
     flex-direction: row;
@@ -175,7 +192,7 @@ body {
     }
     
     #contact-area ul li i {
-        color: var(--primary-dark);
+        color: rgb(29, 30, 65);
         display: flex;
         width: 40px;
         height: 40px;
@@ -202,11 +219,6 @@ body {
     }
 
  
-
-    /* Menu lateral */ 
-
- 
-    /**/
     .col-100{
       width: 100%;
    }
@@ -235,8 +247,8 @@ body {
     border: none;
     width: 25px;
     height: 51px;
-  z-index: 9;
-  position: absolute;
+    z-index: 9;
+    position: absolute;
     background-color: transparent;
     background-image: url('proximo.png');
     top: 35%;
@@ -265,9 +277,9 @@ body {
   .slick-dots{
     margin: 0 auto;
     width: 50%;
-  position:absolute;
-  left: 50%;
-  top: 600px;
+    position:absolute;
+    left: 50%;
+    top: 600px;
   }
    
   li.slick-active button{
@@ -275,7 +287,7 @@ body {
   }
    
   .slick-dots li{
-  padding-left: 10px;
+    padding-left: 10px;
     display: inline-block;
   }
 
@@ -288,12 +300,24 @@ body {
   .btn {
     margin-top: 20px;
  
+  } 
+
+  #cardapio button{
+    background-color: #FF7100;
+    border-color: #FF7100;
+    border-radius: 10rem;
+  }
+
+  #cardapio a{
+    background-color: #a1d5ff;
+    border-color: #a1d5ff;
+    font-size: 14pt;
+  
   }
 
   .carda {
     margin-top: 50px;
     margin-bottom: 50px;
-    border-color: blue;
     border-radius: 10px;
     font-size: 14pt;
     color: #000;
@@ -302,7 +326,7 @@ body {
 
   
   #dieta {
-  background-color: rgb(155, 155, 155);
+  background-color: #BBE0FF;
   margin-top: 50px;
   border-radius: 40px;
   margin-left: 80px;
@@ -327,10 +351,14 @@ body {
   margin-left: -80px;
 }
 
+#cronograma {
+  padding-top: 70px;
+}
 
 .cronograma{
   font-size: 16pt;
 }
+
 
 .botao{
   margin-top: 40px;
@@ -341,4 +369,8 @@ body {
 .grid{
   border: 1px solid black;
 }
+
+
+/* ESTATUTO */ 
+ 
 

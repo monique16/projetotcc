@@ -99,7 +99,7 @@ if (isset($_POST['btnSalvar'])) {
 <?php include('menu.php'); ?>
 <div class="main-login">
     <div class='left-login'>
-        <img src="imagens/teaching-animate.svg" class="left-login-image" alt="Cell Animado">
+        <img style="width: 650px; height: 650px;" src="imagens/professora.svg" class="left-login-image" alt="Cell Animado">
     </div>
 
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
@@ -152,13 +152,20 @@ if (isset($_POST['btnSalvar'])) {
                         <input class='btn-login' type="reset" value="Limpar campos" />
                     </div>
     </form>
-</div>
+
+
+
+    <div>
+  <footer class="footer mt-auto py-3">
+    <div class="container fluid">
+      <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
+    </div>
+  </footer>
 </div>
 
 
-<script src="js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="js/isotope.pkgd.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/main.js"></script>
+
+
+  
+</body>
 </html>

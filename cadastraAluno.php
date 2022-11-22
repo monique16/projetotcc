@@ -32,7 +32,7 @@ if (isset($_POST['btnEnviar'])) {
     $data_nascimento = $_POST['data_nascimento'];
     $data_ingresso = $_POST['data_ingresso'];
 
-    if (isset($_POST["submit"])) {
+    if (isset($_POST["btnEnviar"])) {
         $check = getimagesize($_FILES["foto_aluno"]["tmp_name"]);
         if ($check !== false) {
           echo "File is an image - " . $check["mime"] . ".";
@@ -99,16 +99,20 @@ if (isset($_POST['btnEnviar'])) {
     <title>Login</title>
 </head>
 <?php include('menu.php'); ?>
+<body>
+<div id="cadastro">
+
     <div class="main-login">
+        
         <div class='left-login'>
-        <img src="imagens/personal-data-animate.svg" style="margin-top: 0px"class="left-login-image" alt="Cell Animado"></div>
+        <img src="imagens/cadastro.svg" class="left-login-image" alt="Cell Animado"></div>
 
         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" enctype="multipart/form-data">
             <div class="right-login">
                 <div  class="card-login">
-                    <div class="row">
+                <h2 class="title text-center mb-5" >CADASTRAR ALUNOS</h2>
 
-                    <h2> CADASTRAR ALUNOS </h2>
+                    <div class="row">
 
                     <div class="textfield">
                         <b>Nome: </b><input class='form-control' type="text" name="nome_aluno" />
@@ -177,8 +181,17 @@ if (isset($_POST['btnEnviar'])) {
 </form>
 
 
- </body>
-</html>
+<div>
+  <footer class="footer mt-auto py-3">
+    <div class="container fluid">
+      <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
+    </div>
+  </footer>
+</div>
+
+</div>
+</div>
+
 
     <script src="js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -198,3 +211,5 @@ if (toastTrigger) {
   })
 }
 </script>
+</body>
+</html>

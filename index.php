@@ -1,7 +1,7 @@
 <?php
 include('menu.php');
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true){
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true) {
   header("location: login.php");
 }
 /* No welcome troque pelo nome da pagina principal do projeto // EX: index.html(php) 
@@ -42,61 +42,58 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true){
 
   <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasExampleLabel">PERFIL</h5>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" class="btn-close btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
       <div>
 
         <div style="margin-right: 40px">
+        <div class="lateral" style="color:#4eafff;">
 
-          <img style="margin-left: 60px" class="rounded-circle mt-3 mb-3" height="200" width="200" src="imageview/<?php echo $_SESSION['foto'] ?>
+          <img style="margin-left: 60px; margin-top:-10px;" class="rounded-circle mb-3" height="200" width="200" src="imageview/<?php echo $_SESSION['foto'] ?>">
           <br>
+            <div class="campo title rounded p-2 mb-2 mt-3" ><b>Nome:</b>
+              <?php echo $_SESSION['nome'] ?></div>
 
-          <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-face-smile"></i> <b>Nome:</b>
-            <?php echo $_SESSION['nome'] ?></div>
+            <div class="campo title rounded p-2 mb-2" ><b>CPF:</b>
+              <?php echo $_SESSION['cpf'] ?></div>
 
-          <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-file"></i> <b>CPF:</b>
-            <?php echo $_SESSION['cpf'] ?></div>
+            <div class="campo title rounded p-2 mb-2" ><b>E-mail:</b>
+              <?php echo $_SESSION['email'] ?></div>
 
-          <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-envelope"></i> <b>E-mail:</b>
-            <?php echo $_SESSION['email'] ?></div>
-
-          <?php
-          if ($_SESSION["funcionario"]) { ?>
-            <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-user-tie"></i> <b>Função:</b>
-              <?php echo $_SESSION['funcao'] ?></div>
-          <?php
-          };
-          ?>
-          <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-sun"></i> <b>Turno:</b>
-            <?php echo $_SESSION['turno'] ?></div>
+            <?php
+            if ($_SESSION["funcionario"]) { ?>
+              <div class="campo title rounded p-2 mb-2"><b>Função:</b>
+                <?php echo $_SESSION['funcao'] ?></div>
+            <?php
+            };
+            ?>
+            <div class="campo title rounded p-2 mb-2" ><b>Turno:</b>
+              <?php echo $_SESSION['turno'] ?></div>
 
 
-          <?php
-          if (!$_SESSION["funcionario"]) { ?>
-            <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-balloon"></i> <b>N° Matrícula:</b>
-              <?php echo $_SESSION['matricula'] ?></div>
+            <?php
+            if (!$_SESSION["funcionario"]) { ?>
+              <div class="campo title rounded p-2 mb-2" ><b>N° Matrícula:</b>
+                <?php echo $_SESSION['matricula'] ?></div>
 
-            <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-folder-open"></i> <b>Série:</b>
-              <?php echo $_SESSION['serie'] ?></div>
+              <div class="campo title rounded p-2 mb-2" ><b>Série:</b>
+                <?php echo $_SESSION['serie'] ?></div>
 
-            <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-circle-user"></i> <b>Data de ingresso:</b>
-              <?php echo $_SESSION['data_ingresso'] ?></div>
+              <div class="campo title rounded p-2 mb-2" ><b>Data de ingresso:</b>
+                <?php echo $_SESSION['data_ingresso'] ?></div>
 
-            <div class="rounded-3 p-2 mb-2" style="background-color:rgb(170, 170, 170)"> <i class="fa-regular fa-message"></i> <b>Recado:</b>
-              <?php echo $_SESSION['recado'] ?></div>
+              <div class="campo title rounded p-2 mb-2" ><b>Recado:</b>
+                <?php echo $_SESSION['recado'] ?></div>
 
-          <?php
-          };
-          ?>
+            <?php
+            };
+            ?>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-
-
   <!-- MENU LATERAL --->
 
 
@@ -115,7 +112,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true){
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="imagens/banner.png" alt="Los Angeles" class="d-block" style="width:100%">
+        <img src="imagens/professores.jpg" alt="Los Angeles" class="d-block" style="width:80%; margin-left:11rem;">
         <div class="carousel-caption" style="margin-bottom: 70px;">
           <h3 style=" font-size: 40px;">CLICK ESCOLA</h3>
           <h4 class="mb-5"> Sistema de gestão escolar para responsáveis </h4>
@@ -126,7 +123,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true){
         </div>
       </div>
       <div class="carousel-item">
-        <img src="imagens/banner.png" alt="Chicago" class="d-block" style="width:100%">
+        <img src="imagens/prof.jpg" alt="Chicago" class="d-block" style="width:80%; margin-left:11rem;">
         <div class="carousel-caption" style="margin-bottom: 70px;">
           <h3 style=" font-size: 40px;">CLICK ESCOLA</h3>
           <h4 class="mb-5"> Sistema de gestão escolar para responsáveis </h4>
@@ -137,11 +134,11 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true){
         </div>
       </div>
       <div class="carousel-item">
-        <img src="imagens/banner.png" alt="New York" class="d-block" style="width:100%">
+        <img src="imagens/profs.jpg" alt="New York" class="d-block" style="width:80%; margin-left:11rem;">
         <div class="carousel-caption" style="margin-bottom: 70px;">
           <h3 style=" font-size: 40px;">CLICK ESCOLA</h3>
           <h4 class="mb-5"> Sistema de gestão escolar para responsáveis </h4>
-          <a href="#sobre" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">
+          <a href="#sobre" style="background-color:#FF7100" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">
             Sobre a escola</a>
           <a href="#plataforma" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2">
             Conheça a plataforma</a>
@@ -190,14 +187,14 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true){
   <!-- SOBRE A PLATAFORMA -->
   <div id="plataforma" class="block">
     <div class="container">
-      <h2 class="title text-center">Conheça nossos Funcionários</h2>
-      <h5 class="subtitle text-center mb-4">A plataforma CLICKSCHOOL foi desenvolvida com objetivo de facilitar
+      <h2 class="title text-center">Conheça as nossas funcionalidades</h2>
+      <h5 class="subtitle text-center mb-4">A plataforma CLICK ESCOLA foi desenvolvida com objetivo de facilitar
         a comunicação entre professores e responsáveis, ademais possui as seguintes funções</h5>
       <div class="row">
         <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
           <a href="#" class="destaques">
             <div class="img-container mb-3">
-              <img src="imagens/todos.jpg" class="img-fluid" />
+              <img src="imagens/ficha.png" class="img-fluid" />
             </div>
             <h5 class="text-uppercase">Ficha do Aluno</h5>
             <p class="mb-0">Possui um perfil de aluno individual de acordo ao usuário</p>
@@ -206,25 +203,25 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true){
         <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
           <a href="#" class="destaques">
             <div class="img-container mb-3">
-              <img src="imagens/todos.jpg" class="img-fluid" />
+              <img src="imagens/calendario.png" class="img-fluid" />
             </div>
             <h5 class="text-uppercase">Cronograma e Cardápio</h5>
-            <p class="mb-0">Acesso as atividades de funcionamento escolar</p>
+            <p class="mb-0">Possui acesso a rotina de atividades escolares</p>
           </a>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
           <a href="#" class="destaques">
             <div class="img-container mb-3">
-              <img src="imagens/todos.jpg" class="img-fluid" />
+              <img src="imagens/evento.png" class="img-fluid" />
             </div>
             <h5 class="text-uppercase">Eventos</h5>
-            <p class="mb-0">Possui um album de fotos com filtro para cada evento escolar</p>
+            <p class="mb-0">Possui um album de fotos para os eventos escolares</p>
           </a>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
           <a href="#" class="destaques">
             <div class="img-container mb-3">
-              <img src="imagens/todos.jpg" class="img-fluid" />
+              <img src="imagens/agenda.png" class="img-fluid" />
             </div>
             <h5 class="text-uppercase">Agenda de recados</h5>
             <p class="mb-0">Possui uma agenda de recados para facilitar o acesso a informção</p>
@@ -257,26 +254,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === !true){
           <p><span class="contact-tile">Venha nos visitar</span> <a href="https://goo.gl/maps/AB4CtzyTGD792J76A" target="_blank"></p>Retiro da União, Sombrio - SC</p>
         </div>
       </div>
-      <div class="logo py-4">
-        <div class="row">
-          <div class="col-md-6 align-self-center text-md-left text-center">
-            <img src="imagens/logon.png" class="img-fluid" />
-          </div>
-          <div class="col-md-6 align-self-center text-right">
-            <ul>
-              <li>
-                <a href="https://www.facebook.com/profile.php?id=100073165999279" target="_blank"></p><i class="fa-brands fa-facebook"></i>
-              </li>
-              <li>
-                <a href="https://www.instagram.com/eebm_antoniostuart/" target="_blank"></p><i class="fa-brands fa-instagram"></i>
-              </li>
-              <li>
-                <a href="https://www.youtube.com/channel/UCZDvcWAHsV_ld1NeR5fR1ig" target="_blank"></p><i class="fa-brands fa-youtube"></i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    </div>
   </footer>
   <!-- // FOOTER -->
 

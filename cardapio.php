@@ -47,27 +47,26 @@ $query = mysqli_query($conn, $sql);
       <div class="col-1"></div>
       <!--      <div class="row row-cols-5 d-grid gap-4 d-md-flex"> -->
       <div class="col-2">
-        <button type="button" style="width: 90%;" class="btn button-primay btn-primary " disabled>
+        <button type="button" style="width: 90%;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2 " disabled>
           Segunda-Feira
-        </button>
       </div>
       <div class="col-2">
-        <button type="button" style="width: 90%;" class="btn button-primay btn-primary " disabled>
+        <button type="button" style="width: 90%;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>
           Terça-Feira
         </button>
       </div>
       <div class="col-2">
-        <button type="button" style="width: 90%;" class="btn button-primay btn-primary" disabled>
+        <button type="button" style="width: 90%;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>
           Quarta-Feira
         </button>
       </div>
       <div class="col-2">
-        <button type="button" style="width: 90%;" class="btn button-primay btn-primary" disabled>
+        <button type="button" style="width: 90%;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>
           Quinta-Feira
         </button>
       </div>
       <div class="col-2">
-        <button type="button" style="width: 90%;" class="btn button-primay btn-primary" disabled>
+        <button type="button" style="width: 90%;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>
           Sexta-Feira
         </button>
       </div>
@@ -77,20 +76,22 @@ $query = mysqli_query($conn, $sql);
 
 
     <div class="text-center">
-      <button class="carda" type="button" class="btn button-outline btn-outline button" disabled>café da manhã/tarde | 09h30 - 09h45 e 15h15 - 15h30</button>
+      <button class="carda" type="button" style="background-color:white; margin-right:40px;" class="btn button-outline btn-outline button" disabled>café da manhã | 09h30 - 09h45 </button>
+      <button class="carda" type="button" style="background-color:white; margin-left:10px;" class="btn button-outline btn-outline button" disabled>café da tarde | 15h15 - 15h30</button>
     </div>
     <div class="row align-items-center">
       <div class="col-1"></div>
       <?php while ($dados = mysqli_fetch_array($query)) { ?>
         <div class="col-2">
           <div class="card" style="width: 90%;">
-          <?php if($_SESSION["funcionario"] === true){?>
-            <a colspan="2" class="text-center"><a class='btn button-primay btn-primary button  mb-md-0 mt-0' href='editaCardapio.php?cod_cardapio=<?php echo $dados['cod_cardapio'] ?>'>Editar</a>
-           <?php } ?> 
-            <td> <img class="card-img-top" height="200" width="200" src="image-cardapio/<?php echo $dados['foto_alimento'] ?>"> </td>
-            <div class="card-body">
-              <p class="card-text title"><b><?php echo $dados['alimento'] ?></b></p>
-            </div>
+            <?php if ($_SESSION["funcionario"] === true) { ?>
+              <a colspan="2" class="text-center"><a class='btn button-primay btn-primary button  mb-md-0 mt-0' href='editaCardapio.php?cod=<?php echo $dados['cod_cardapio'] ?>'>Editar</a>
+              <?php } ?>
+              <td> <img class="card-img-top" height="200" width="200" src="./image-cardapio/<?php echo $dados['foto_alimento'] ?>"> </td>
+
+              <div class="card-body">
+                <p class="card-text title"><b><?php echo $dados['alimento'] ?></b></p>
+              </div>
           </div>
         </div>
       <?php } ?>
@@ -98,21 +99,21 @@ $query = mysqli_query($conn, $sql);
     </div>
 
     <div class="text-center">
-      <button class="carda" type="button" class="btn button-outline btn-outline button" disabled>almoço | 11h45 - 13h00</button>
+      <button class="carda" type="button" style="background-color:white;" class="btn button-outline btn-outline button" disabled>almoço | 11h45 - 13h00</button>
     </div>
-  
+
   </div>
 </div>
-
 
 <div id="dieta" class="block">
   <div class="container">
     <div class="row">
       <div class="col-md-5 text-center align-self-center order-md-1 order-2">
-        <img src="imagens/logo.png" class="img-fluid" />
+        <img src="imagens/dieta.svg" class="img-fluid" style="margin-top: 20px; margin-bottom: 20px;" />
       </div>
-      <div class="col-md-6 align-self-center mb-md-0 mb-4 order-md-2 order-1">
-        <h2 class="title">dieta escolar</h2>
+      <div style="text-align:justify" class="col-md-6 align-self-center mb-md-0 mb-4 order-md-2 order-1">
+        <h1 style="font-size:30pt;">CONHEÇA A</h1>
+        <h1 style="font-size:30pt; color:#FF7100;">ALIMENTAÇÃO ESCOLAR</h1>
         <h4 class="subtitle">saiba mais como funciona o cardapio escolar dos alunos</h4>
         <p> A escola conta com a modalidade de Ensino Regular,
           a qual hoje atende 217 alunos, e diversas comunidades, distribuídos do Infantil V ao 9° ano.

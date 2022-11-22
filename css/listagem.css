@@ -5,6 +5,10 @@
     font-family: "Roboto", sans-serif;
 }
 
+.main-box{
+padding-top: 70px;
+}
+
 .menu h2{
     display: flex;
     justify-content: center;
@@ -45,13 +49,13 @@
 
 .box{
     height: 370px;
-    width: 230px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    background-color: rgb(196, 196, 196);
+    background-color: #BBE0FF;
     border-radius: 5px;
 }
 
@@ -79,7 +83,7 @@
     width: 150px;
     border-radius: 4px;
     background-color: white;
-    color: black;
+    color: #ff7100;
     text-align: center;
     font-weight: bold;
 }

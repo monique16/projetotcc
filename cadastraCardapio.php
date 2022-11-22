@@ -25,7 +25,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
     if (isset($_POST['btnSalvar'])) {
         $target_dir = "image-cardapio/";
         $name = $_FILES['foto_alimento']['name'];
-
+echo $name;
         $ext = strtolower(substr($name, -4)); //Pegando extensão do arquivo
         $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
 
@@ -86,7 +86,7 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
 
                 if (mysqli_affected_rows($conn) > 0) {
                     echo "<script> alert('Recado cadastrado com sucesso.') </script>";
-                    header("Location: cardapio.php");
+                    header("Location: cadastraCardapio.php");
                 } else {
                     echo "<script> alert('Ocorreu algum erro.') </script>";
                 }

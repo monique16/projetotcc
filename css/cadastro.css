@@ -7,15 +7,22 @@ body{
 
 body *{
     box-sizing: border-box;
+    
 }
+
+#cadastro {
+    padding-top: 70px;
+    background-color: #BBE0FF;
+  }
 
 .main-login{
     width: 100vw;   
     height: 100vh;
-    background: rgb(114, 32, 0);
+    background: #BBE0FF;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 0px;
 }
 
 .left-login{
@@ -25,6 +32,7 @@ body *{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: #BBE0FF;
 }
 
 .right-login{
@@ -42,13 +50,13 @@ body *{
     align-items: center;
     flex-direction: column;
     padding: 30px 35px;
-    background: white;
+    background: rgb(255, 255, 255);
     border-radius: 20px;
     box-shadow: 0px 10px 40px #00000056;
 }
 
 .card-login > h1{
-    color: 00ff88;
+    color: rgb(255, 255, 255);
     font-weight: 800;
     margin: 0;
 }
@@ -59,12 +67,11 @@ body *{
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin: 10px 0px;
     width: 100%;
     border-radius: 10px;
-    background: white;
+    background: rgb(255, 255, 255);
     color: black;
-    font-size: 12pt;
+    font-size: 14pt;
     box-shadow: #00000056 ;
     outline: none;
     box-sizing: border-box;
@@ -72,10 +79,10 @@ body *{
 
 .textfield > input{
     width: 100%;
-    border: 1px solid #fcb251;
+    border: 1px solid #FF7100;
     border-radius: 10px;
     padding: 10px;
-    background: white;
+    background: rgb(255, 255, 255);
     color: black;
     font-size: 12pt;
     box-shadow: #00000056 ;
@@ -84,10 +91,10 @@ body *{
 }
 .textfield > select{
     width: 100%;
-    border: 1px solid #fcb251;
+    border: 1px solid #FF7100;
     border-radius: 10px;
     padding: 10px;
-    background: white;
+    background: rgb(255, 255, 255);
     color: black;
     font-size: 12pt;
     box-shadow: #00000056 ;
@@ -101,11 +108,11 @@ body *{
 }
 
 .textfield > input::placeholder{
-    color: #fcb251;;
+    color: #FF7100;
 }
 
 .textfield > select::placeholder{
-    color: #fcb251;;
+    color: #FF7100;
 }
 
 .btn-login{
@@ -118,8 +125,8 @@ body *{
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 3px;
-    color: white;
-    background: #fcb251;;
+    color: rgb(255, 255, 255);
+    background: #FF7100;
     cursor: pointer;
     box-shadow: 0px 10px 40px -12 #00ff8052;
 }

@@ -1,4 +1,4 @@
-CREATE DATABASE projeto;
+eventsCREATE DATABASE projeto;
 
 USE projeto;
 
@@ -24,14 +24,13 @@ CREATE TABLE alunos (
   email VARCHAR(25) NOT NULL,
   senha_funcionario VARCHAR(15) NOT NULL,
   funcao VARCHAR(15) NOT NULL,
-  foto_funcionario VARCHAR(100) NOT NULL
+  foto_funcionario VARCHAR(100) NOT NULL,
+  turno VARCHAR(10) NOT NULL
     );
 
 
 CREATE TABLE cardapio (
   cod_cardapio INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  dia_cardapio VARCHAR(12) NOT NULL,
-  horario_cardapio TIME NOT NULL,
   alimento VARCHAR(30) NOT NULL,
   foto_alimento VARCHAR(100) NOT NULL
 );

@@ -36,14 +36,14 @@ $query = mysqli_query($conn, $sql);
   <link rel="stylesheet" href="css/magnific-popup.css" />
   <link rel="stylesheet" href="css/principal.css" />
   <link rel="stylesheet" tipo="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  </head>
+</head>
 
 
 <body>
 
-<div class="cronograma">
+  <div class="cronograma" id="cronograma">
     <h2 class="title text-center mb-5">Cronograma</h2>
-    <div class="container text-center">   
+    <div class="container text-center">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="infantil-i-tab" data-bs-toggle="tab" data-bs-target="#infantil-i" type="button" role="tab" aria-controls="infantil-i" aria-selected="true">Infantil I</button>
@@ -85,77 +85,96 @@ $query = mysqli_query($conn, $sql);
       <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="infantil-i" role="tabpanel" aria-labelledby="infantil-i-tab">
 
-          <div class="botao row">
-          </div>
-          <div class="row">
-            <div class="col-1"></div>
-            <div class="col-2">
-              <button type="button" style="width: 90%; font-size: 16pt;" class="btn button-primay btn-primary " disabled>
-                Segunda-Feira
-              </button>
-            </div>
-            <div class="col-2">
-              <button type="button" style="width: 90%; font-size: 16pt;" class="btn button-primay btn-primary " disabled>
-                Terça-Feira
-              </button>
-            </div>
-            <div class="col-2">
-              <button type="button" style="width: 90%; font-size: 16pt;" class="btn button-primay btn-primary" disabled>
-                Quarta-Feira
-              </button>
-            </div>
-            <div class="col-2">
-              <button type="button" style="width: 90%; font-size: 16pt;" class="btn button-primay btn-primary" disabled>
-                Quinta-Feira
-              </button>
-            </div>
-            <div class="col-2">
-              <button type="button" style="width: 90%; font-size: 16pt;" class="btn button-primay btn-primary" disabled>
-                Sexta-Feira
-              </button>
-            </div>
-          </div>
-          
-          <div class="hora row container">
-            <?php while ($dados = mysqli_fetch_array($query)) { ?>
-              <div class="cronograma row container">
-                <div class="grade col-auto" style="margin-top: 20px;">
-
-                <?php if ($_SESSION["funcionario"] === true) { ?>
-                <a colspan="2" class="text-center"><a class='btn btn-primary' href='editaCronograma.php?cod_cronograma=<?php echo $dados['cod_cronograma'] ?>'>Editar</a>
-                <?php } ?>
-
-                  <button type="button" class="btn button-primay btn-primary" disabled> <?php echo $dados['horario_cronograma'] ?></button>
-                  <a type="text" class="btn grid" style="margin-left: 50px;" disabled> <?php echo $dados['disciplina_seg'] ?></a>
-                  <a type="text" class="btn grid" style="margin-left: 140px;" disabled> <?php echo $dados['disciplina_terc'] ?></a>
-                  <a type="text" class="btn grid" style="margin-left: 120px;" disabled> <?php echo $dados['disciplina_quar'] ?></a>
-                  <a type="text" class="btn grid" style="margin-left: 110px;" disabled> <?php echo $dados['disciplina_quin'] ?></a>
-                  <a type="text" class="btn grid" style="margin-left: 140px;" disabled> <?php echo $dados['disciplina_sext'] ?></a>
+          <div id="cardapio">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-1"></div>
+                <!--      <div class="row row-cols-5 d-grid gap-4 d-md-flex"> -->
+                <div class="col-2">
+                  <button type="button" style="width: 90%; font-size: 14pt;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2 " disabled>
+                    Segunda-Feira
                 </div>
+                <div class="col-2">
+                  <button type="button" style="width: 90%; font-size: 14pt;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>
+                    Terça-Feira
+                  </button>
+                </div>
+                <div class="col-2">
+                  <button type="button" style="width: 90%; font-size: 14pt;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>
+                    Quarta-Feira
+                  </button>
+                </div>
+                <div class="col-2">
+                  <button type="button" style="width: 90%; font-size: 14pt;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>
+                    Quinta-Feira
+                  </button>
+                </div>
+                <div class="col-2">
+                  <button type="button" style="width: 90%; font-size: 14pt;" class="btn button-primay btn-primary button d-md-inline-block d-block mb-md-0 mb-2 mr-md-2" disabled>
+                    Sexta-Feira
+                  </button>
+                </div>
+                <!--  </div> -->
+                <div class="col-1"></div>
+
+                <div class="hora row container">
+                  <?php while ($dados = mysqli_fetch_array($query)) { ?>
+                    <div class="cronograma row container">
+                      <div class="grade" style="margin-top: 20px;">
+
+                        <?php if ($_SESSION["funcionario"]) { ?>
+                          <a colspan="2" class="text-center btn btn-primary" style="color:black;" href='editaCronograma.php?cod_cronograma=<?php echo $dados['cod_cronograma'] ?>'>Editar</a>
+                        <?php } ?>
+
+                        <button type="button" class="btn button-primay btn-primary" disabled> <?php echo $dados['horario_cronograma'] ?></button>
+                        <a type="text" class="col-2 title btn grid" disabled> <?php echo $dados['disciplina_seg'] ?></a>
+                        <a type="text" class="col-2 title btn grid" disabled> <?php echo $dados['disciplina_terc'] ?></a>
+                        <a type="text" class="col-2 title btn grid" disabled> <?php echo $dados['disciplina_quar'] ?></a>
+                        <a type="text" class="col-2 title btn grid" disabled> <?php echo $dados['disciplina_quin'] ?></a>
+                        <a type="text" class="col-2 title btn grid" disabled> <?php echo $dados['disciplina_sext'] ?></a>
+                      </div>
+                    </div>
+                  <?php } ?>
+
+                </div>
+
               </div>
-            <?php } ?>
 
+
+
+              <div class="tab-pane fade" id="infantil-iii" role="tabpanel" aria-labelledby="infantil-ii-tab">Cronograma Infantil III</div>
+              <div class="tab-pane fade" id="primeiro" role="tabpanel" aria-labelledby="primeiro-tab">Cronograma 1° ano</div>
+              <div class="tab-pane fade" id="segundo" role="tabpanel" aria-labelledby="segundo-tab">Cronograma 2° ano</div>
+              <div class="tab-pane fade" id="terceiro" role="tabpanel" aria-labelledby="terceiro-tab">Cronograma 3° ano</div>
+              <div class="tab-pane fade" id="quarto" role="tabpanel" aria-labelledby="quarto-tab">Cronograma 4° ano</div>
+              <div class="tab-pane fade" id="quinto" role="tabpanel" aria-labelledby="quinto-tab">Cronograma 5° ano</div>
+              <div class="tab-pane fade" id="sexto" role="tabpanel" aria-labelledby="sexto-tab">Cronograma 6° ano</div>
+              <div class="tab-pane fade" id="setimo" role="tabpanel" aria-labelledby="setimo-tab">Cronograma 7° ano</div>
+              <div class="tab-pane fade" id="oitavo" role="tabpanel" aria-labelledby="oitavo-tab">Cronograma 8° ano</div>
+              <div class="tab-pane fade" id="nono" role="tabpanel" aria-labelledby="nono-tab">Cronograma 9° ano</div>
+            </div>
           </div>
-          
         </div>
-
-        <div class="tab-pane fade" id="infantil-ii" role="tabpanel" aria-labelledby="infantil-ii-tab">Cronograma Infantil II
-
-        </div>
-        <div class="tab-pane fade" id="infantil-iii" role="tabpanel" aria-labelledby="infantil-ii-tab">Cronograma Infantil III</div>
-        <div class="tab-pane fade" id="primeiro" role="tabpanel" aria-labelledby="primeiro-tab">Cronograma 1° ano</div>
-        <div class="tab-pane fade" id="segundo" role="tabpanel" aria-labelledby="segundo-tab">Cronograma 2° ano</div>
-        <div class="tab-pane fade" id="terceiro" role="tabpanel" aria-labelledby="terceiro-tab">Cronograma 3° ano</div>
-        <div class="tab-pane fade" id="quarto" role="tabpanel" aria-labelledby="quarto-tab">Cronograma 4° ano</div>
-        <div class="tab-pane fade" id="quinto" role="tabpanel" aria-labelledby="quinto-tab">Cronograma 5° ano</div>
-        <div class="tab-pane fade" id="sexto" role="tabpanel" aria-labelledby="sexto-tab">Cronograma 6° ano</div>
-        <div class="tab-pane fade" id="setimo" role="tabpanel" aria-labelledby="setimo-tab">Cronograma 7° ano</div>
-        <div class="tab-pane fade" id="oitavo" role="tabpanel" aria-labelledby="oitavo-tab">Cronograma 8° ano</div>
-        <div class="tab-pane fade" id="nono" role="tabpanel" aria-labelledby="nono-tab">Cronograma 9° ano</div>
       </div>
     </div>
-</div>
+  </div>
 
+  <div id="dieta" class="block" style="margin-top: -170px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5 text-center align-self-center order-md-1 order-2">
+          <img src="imagens/lição.svg" class="img-fluid" style="margin-top: 20px; margin-bottom: 20px; width:400px; height: 400px;" />
+        </div>
+        <div style="text-align:justify" class="col-md-6 align-self-center mb-md-0 mb-4 order-md-2 order-1">
+          <h1 class="title" style="font-size:30pt;">Fique de olho nas </h1>
+          <h1 class="title" style="font-size:30pt; color:#FF7100;">matérias e lições de casa</h1>
+          <h1 class="title" style="font-size:30pt;">do dia! </h1>
+          <p style="font-size:14pt;"> Os pais devem sempre ser os primeiros a ensinar os seus filhos, especialmente quando o assunto é a lição de casa. Cada tarefa deve ser vista como uma oportunidade única de aprendizagem da criança em um ambiente diferente da escola.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div>
     <footer class="footer mt-auto py-3">
@@ -164,16 +183,16 @@ $query = mysqli_query($conn, $sql);
       </div>
     </footer>
   </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 
-<script src="js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="js/isotope.pkgd.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/main.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/isotope.pkgd.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/main.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </body>
 
 </html>
