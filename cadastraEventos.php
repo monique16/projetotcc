@@ -15,83 +15,84 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
-    <title>Eventos</title>
+    <link rel="shortcut icon" href="imagens/logon.png">
+    <title>Cadastrar Eventos</title>
 </head>
-    <?php
-    include('conexao.php'); // importa o arquivo de conexao com o BD
+<?php
+include('conexao.php'); // importa o arquivo de conexao com o BD
 
-    if (isset($_POST['btnEnviar'])) {
-        $target_dir = "image-evento/";
-        $name = $_FILES['foto_evento']['name'];
+if (isset($_POST['btnEnviar'])) {
+    $target_dir = "image-evento/";
+    $name = $_FILES['foto_evento']['name'];
 
-        $ext = strtolower(substr($name, -4)); //Pegando extensão do arquivo
-        $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
+    $ext = strtolower(substr($name, -4)); //Pegando extensão do arquivo
+    $new_name = date("Y.m.d-H.i.s") . $ext; //Definindo um novo nome para o arquivo
 
-        $target_file = $target_dir . $new_name;
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+    $target_file = $target_dir . $new_name;
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        $nome_evento = $_POST['nome_evento'];
-        $foto_evento = $target_file;
+    $nome_evento = $_POST['nome_evento'];
+    $foto_evento = $target_file;
 
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["foto_evento"]["tmp_name"]);
-            if ($check !== false) {
-                echo "File is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File is not an image.";
-                $uploadOk = 0;
-            }
-        }
-
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            echo "Sorry, file already exists.";
-            $uploadOk = 0;
-        }
-
-        // Check file size
-        //  if ($_FILES["foto_evento"]["size"] > 500000) {
-        //    echo "Sorry, your file is too large.";
-        //   $uploadOk = 0;
-        // }
-
-        // Allow certain file formats
-        if (
-            $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif"
-        ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-        }
-
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            // echo "Sorry, your file was not uploaded.";
-            // if everything is ok, try to upload file
+    if (isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["foto_evento"]["tmp_name"]);
+        if ($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
         } else {
-            if (move_uploaded_file($_FILES["foto_evento"]["tmp_name"], $target_file)) {
-                // echo "O arquivo " . htmlspecialchars(basename($_FILES["foto_aluno"]["name"])) . " foi enviado com sucesso.";
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+    }
 
-                // echo " $target_file";
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Check file size
+    //  if ($_FILES["foto_evento"]["size"] > 500000) {
+    //    echo "Sorry, your file is too large.";
+    //   $uploadOk = 0;
+    // }
+
+    // Allow certain file formats
+    if (
+        $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+        && $imageFileType != "gif"
+    ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        // echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["foto_evento"]["tmp_name"], $target_file)) {
+            // echo "O arquivo " . htmlspecialchars(basename($_FILES["foto_aluno"]["name"])) . " foi enviado com sucesso.";
+
+            // echo " $target_file";
 
 
-                $sql = "INSERT INTO eventos (nome_evento, foto_evento)
+            $sql = "INSERT INTO eventos (nome_evento, foto_evento)
                 VALUES ('$nome_evento','$new_name')";
 
-                mysqli_query($conn, $sql);
+            mysqli_query($conn, $sql);
 
-                if (mysqli_affected_rows($conn) > 0) {
-                    echo "<script> alert('Funcionário cadastrado com sucesso.') </script>";
-                    header("Location: eventos.php");
-                } else {
-                    echo "<script> alert('Ocorreu algum erro.') </script>";
-                }
+            if (mysqli_affected_rows($conn) > 0) {
+                echo "<script> alert('Funcionário cadastrado com sucesso.') </script>";
+                header("Location: eventos.php");
+            } else {
+                echo "<script> alert('Ocorreu algum erro.') </script>";
             }
         }
     }
-    ?>
+}
+?>
 
 <?php include('menu.php'); ?>
 <div class="main-login">
@@ -109,16 +110,16 @@ if(isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] === true){
                     <div class="textfield">
                         <b>Evento</b>
                         <select class="textfield" type="text" name="nome_evento" class="form-select">
-                    <option selected></option>
-                        <option value="Festa Junina">Festa Junina</option>
-                        <option value="Festa da Família">Festa da Família</option>
-                        <option value="Dias Especiais">Dias especiais</option>
-                        <option value="Passeio">Passeios</option>
-                        <option value="FASE">FASE</option>
-                        <option value="Nossos Alunos">Nossos alunos</option>
-                        <option value="Nossos Funcionários">Nossos funcionários</option>
-                        <option value="Atividades Escolares">Atividades Escolares</option>
-                        <option value="Outros">Outros</option>
+                            <option selected></option>
+                            <option value="Festa Junina">Festa Junina</option>
+                            <option value="Festa da Família">Festa da Família</option>
+                            <option value="Dias Especiais">Dias especiais</option>
+                            <option value="Passeio">Passeios</option>
+                            <option value="FASE">FASE</option>
+                            <option value="Nossos Alunos">Nossos alunos</option>
+                            <option value="Nossos Funcionários">Nossos funcionários</option>
+                            <option value="Atividades Escolares">Atividades Escolares</option>
+                            <option value="Outros">Outros</option>
 
                         </select>
                     </div>

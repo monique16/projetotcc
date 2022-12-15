@@ -64,12 +64,5 @@ $query = mysqli_query($conn, $sql);
                     location.href = 'excluiFuncionario.php?cod_funcionario=' + cod;
             }
         </script>
-<div>
-  <footer class="footer mt-auto py-3">
-    <div class="container fluid">
-      <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
-    </div>
-  </footer>
-</div>
 </body>
 </html>

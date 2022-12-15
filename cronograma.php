@@ -17,7 +17,6 @@ $query = mysqli_query($conn, $sql);
 <html lang="pt">
 
 <head>
-  <title>Click Escola</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -36,6 +35,8 @@ $query = mysqli_query($conn, $sql);
   <link rel="stylesheet" href="css/magnific-popup.css" />
   <link rel="stylesheet" href="css/principal.css" />
   <link rel="stylesheet" tipo="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="shortcut icon" href="imagens/logon.png">
+  <title>Cronograma</title>
 </head>
 
 
@@ -175,14 +176,8 @@ $query = mysqli_query($conn, $sql);
       </div>
     </div>
   </div>
+</body>
 
-  <div>
-    <footer class="footer mt-auto py-3">
-      <div class="container fluid">
-        <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
-      </div>
-    </footer>
-  </div>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 
   <script src="js/bootstrap.min.js"></script>
@@ -193,6 +188,6 @@ $query = mysqli_query($conn, $sql);
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-</body>
+
 
 </html>

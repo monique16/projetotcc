@@ -22,8 +22,8 @@ session_start();
     <!-- CSS -->
     <link rel="stylesheet" href="css/magnific-popup.css" />
     <link rel="stylesheet" href="css/principal.css" />
-    <link rel="stylesheet" tipo="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <title>Clique Escola</title>
+    <title>Cardápio</title>
+  <link rel="icon" type="image/x-icon" href="imagens/logon.ico">
 </head>
 
 <body>

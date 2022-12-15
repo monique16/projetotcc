@@ -39,6 +39,8 @@ echo $sql;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="shortcut icon" href="imagens/logon.png">
+    <title>Cadastrar Cronograma</title>
 </head>
 <body>
     <div class="container">
@@ -86,13 +88,7 @@ echo $sql;
                 </form>
             </div>
     </div>
-    <div>
-        <footer class="footer mt-auto py-3">
-            <div class="container fluid">
-                <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
-            </div>
-        </footer>
-    </div>
+
 
     <script src="js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <div class="right-login">
+        <div class="card-login">
+            <div class="row">
+                <h2> EDITAR CARDAPIO </h2>
+                <input type="text" style="visibility:hidden" name="cod_cardapio" id="cod_cardapio" value="<?php echo $cod?>"/>
+
+                <div class="textfield">
+                    <b>Nome:</b> <input class='form-control' type="text" name="alimento" value="<?php echo $linha['alimento'] ?>" />
+                </div>
+
+                <div class="textfield">
+                    <b>Foto:</b> <input class='form-control' type="file" name="fileToUpload">
+                </div>
+                <div class="form-group">
+                    <input class='btn-login' type="submit" value="Salvar dados" name="btnSalvar" />
+                    <input class='btn-login' type="reset" value="Limpar campos" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>

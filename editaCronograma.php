@@ -78,13 +78,7 @@ $linha = mysqli_fetch_array($rs);
     </form>
 </div>
 
-<div>
-    <footer class="footer mt-auto py-3">
-        <div class="container fluid">
-            <span class="text-muted">Coloque o conteúdo do sticky footer aqui.</span>
-        </div>
-    </footer>
-</div>
+
 
 </body>
 
